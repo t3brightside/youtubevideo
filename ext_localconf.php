@@ -13,5 +13,7 @@ $iconRegistry->registerIcon(
   ['source' => 'EXT:youtubevideo/Resources/Public/Images/Icons/ext_icon_content.svg']
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['youtubevideo_pi1'] =
-   \Brightside\Youtubevideo\Hooks\PageLayoutView\YoutubevideoContentElementPreviewRenderer::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['youtubevideo_pi1'] = \Brightside\Youtubevideo\Hooks\PageLayoutView\YoutubevideoContentElementPreviewRenderer::class;
+   
+//   $TYPO3_CONF_VARS['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] = 
+//   'Brightside\\Youtubevideo\\Hooks\\PageLayoutView\\YoutubevideoContentElementPreviewRenderer';
