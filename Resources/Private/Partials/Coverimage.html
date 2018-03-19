@@ -1,0 +1,18 @@
+<a class="coverimage" style="background:url(
+	<f:if condition="{files.0}">
+		<f:then><f:uri.image src="{files.0.uid}" maxWidth="{f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.coverimagewidth')}" treatIdAsReference="1" /></f:then>
+		<f:else>
+			<f:if condition="{f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.coverimagewidth')} <= 480 || {nomaxrescover}">
+				<f:then>https://i.ytimg.com/vi/{code}/hqdefault.jpg</f:then>
+				<f:else>https://i.ytimg.com/vi/{code}/maxresdefault.jpg</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+) center center no-repeat; background-size: cover;">
+<f:if condition="{data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext}"><div class="youtubeVideo-cover-text"></f:if>
+	<f:if condition="{data.tx_youtubevideo_covertitle}"><h2>{data.tx_youtubevideo_covertitle}</h2><br /></f:if>
+	<f:if condition="{data.tx_youtubevideo_covertext}"><p>{data.tx_youtubevideo_covertext}</p></f:if>
+<f:if condition="{data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext}"></div></f:if>
+<f:comment><svg class="customplaybutton"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 28.06"><path d="M28.06,14A14,14,0,1,1,14,0,14,14,0,0,1,28.06,14ZM11.32,19l7.42-5L11.32,9V19Z" /></svg></f:comment>
+<svg class="customplaybutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 169 169"><circle cx="84.5" cy="84.5" r="84.5" /><polygon points="117.55 84.5 62.96 117.13 62.96 51.87 117.55 84.5 117.55 84.5" /></svg>
+</a>

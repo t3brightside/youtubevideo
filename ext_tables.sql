@@ -1,0 +1,17 @@
+#
+# Adds YouTube Video fields to the tt_content table
+#
+CREATE TABLE tt_content (
+	tx_youtubevideo_url tinytext,
+	tx_youtubevideo_caption tinytext,
+	tx_youtubevideo_autoplay tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_showinfo tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_rel tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_startminute smallint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_startsecond tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_ratio tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_fullscreen tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_loop tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	tx_youtubevideo_covertitle tinytext,
+	tx_youtubevideo_covertext tinytext
+);

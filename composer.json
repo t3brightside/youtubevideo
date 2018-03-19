@@ -1,0 +1,24 @@
+{
+  "name": "t3brightside/youtubevideo",
+  "description": "TYPO3 CMS extension for easy to use YouTube content elements with cover image and cover text.",
+  "type": "typo3-cms-extension",
+  "version": "1.2.3",
+  "keywords": ["TYPO3", "YouTube", "video", "responsive"],
+  "homepage": "https://github.com/t3brightside/youtubevideo/",
+  "license": "GPL-2.0+",
+  "authors": [
+      {
+          "name": "Tanel Põld",
+          "role": "Developer",
+          "email": "info@t3brightside.com",
+          "homepage": "https://t3brightside.com"
+      }
+  ],
+  "require": {
+    "typo3/cms-core": ">=8.7.0,<9.0"
+  },
+  "replace": {
+    "youtubevideo": "self.version",
+    "typo3-ter/youtubevideo": "self.version"
+  }
+}
