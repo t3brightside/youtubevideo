@@ -30,8 +30,12 @@ Features
 - Video and selected options preview in page module
 - Customizable HTML & TS template
 
-.. image:: Documentation/Screenshots/youtubevideo_edit.jpg
+Screenshots
+-----------
 
+- `Editing <Documentation/Screenshots/youtubevideo_edit.jpg>`_
+- `Page Module Preview <Documentation/Screenshots/youtubevideo_page_module.jpg>`_
+- `Front End <Documentation/Screenshots/youtubevideo_front_end.jpg>`_
 
 Installation
 ------------
