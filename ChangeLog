@@ -142,6 +142,7 @@
 	* 1.2.2
 		– Easier to style and change play button, cover image moved to Partials
 		– Play button colour change compatible with ext:microtemplate
-2018-03-19
+2018-03-20
 	* 1.2.3
 		– Composer package added, repo moved to github
+		– README.rst added
