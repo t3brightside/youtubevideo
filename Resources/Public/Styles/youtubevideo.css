@@ -7,7 +7,7 @@
   .youtubeVideo-cover-text h2, .youtubeVideo-cover-text p {margin: 1px; padding: 10px 16px !important; display: inline-block; background-color: rgba(0, 0, 0, 0.67); box-sizing: border-box}
 
 /* play button colors */
-	.youtubeVideo .customplaybutton {transition: all 0.3s ease-in-out; position: relative; margin: auto; width: 14%;  min-width: 70px;  max-width: 90px; height: auto; top: 50%; transform: translateY(-50%)}
+	.youtubeVideo .customplaybutton {transition: all 0.3s ease-in-out; position: relative; margin: auto; width: 14%;  min-width: 70px;  max-width: 90px; height: auto; top: 50%; transform: translateY(-50%);   -ms-transform: translateY(-50%);}
 	.youtubeVideo .customplaybutton polygon {fill: #fff; transition: all 0.3s}
 	.youtubeVideo .customplaybutton circle {opacity: 0.67; transition: all 0.3s} 
 	.youtubeVideo:hover .customplaybutton polygon {fill: #db0500}
