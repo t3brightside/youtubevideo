@@ -15,4 +15,4 @@
 
 /* if .youtubeVideo width is under 600 px, breakpoint is set in extension javascript file */
 	.youtubeVideo.small	.youtubeVideo-cover-text {max-width: 100%; font-size: 0.85em; line-height: 1.4em}
-	.youtubeVideo.small .customplaybutton {position: relative; float: right;  min-width: 40px; max-width: 60px; max-height: 60px; top: 0; margin-top: 5%; margin-right: 5%; transform: none}
+	.youtubeVideo.small .customplaybutton {position: relative; float: right;  min-width: 40px; max-width: 60px; max-height: 60px; top: 0; margin-top: 5%; margin-right: 5%; transform: none; -ms-transform: none;}
