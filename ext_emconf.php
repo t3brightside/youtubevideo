@@ -3,7 +3,7 @@
 		'title' => 'YouTube Video',
 		'description' => 'Easy to use YouTube video content element with responsive template, cover image and backend preview.',
 		'category' => 'fe',
-		'version' => '1.2.3',
+		'version' => '1.2.4',
 		'state' => 'stable',
 		'uploadfolder' => false,
 		'createDirs' => '',
