@@ -6,6 +6,8 @@ youtubevideo.coverimagewidth = 1280
 youtubevideo.enablecovertoall = 1
 # cat=Youtubevideo/1; type=boolean[1]; label= Disable Youtube logo in video control bar
 youtubevideo.modestbranding = 0
+# cat=Youtubevideo/1; type=int+; label= Width of the video window where's play button is placed to upper right corner
+youtubevideo.breakpoint = 600
 # cat=Youtubevideo/1; type=string; label= Template root paths
 youtubevideo.templateRootPaths = EXT:youtubevideo/Resources/Private/Templates/
 # cat=Youtubevideo/1; type=string; label= Template root paths

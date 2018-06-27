@@ -1,6 +1,30 @@
 page.includeCSS.youtubevideo = {$youtubevideo.cssPath}
 page.includeJSFooterlibs.youtubevideo = {$youtubevideo.javascriptPath}
 
+page.jsFooterInline {
+  10982311 = TEXT
+  10982311.value (
+		jQuery( document ).ready(function() {
+			jQuery('.youtubeVideo').each(function() {
+			  if (jQuery(this).width() < {$youtubevideo.breakpoint}){
+			  	jQuery(this).addClass( 'small' );
+			  } else{
+					jQuery(this).removeClass('small')
+				}
+			});
+		});
+		jQuery(window).resize(function(){
+		  jQuery('.youtubeVideo').each(function() {
+			  if (jQuery(this).width() < {$youtubevideo.breakpoint}){
+			  	jQuery(this).addClass( 'small' );
+			  } else{
+					jQuery(this).removeClass('small')
+				}
+			});
+		});
+	)
+}
+
 tt_content {
 	youtubevideo_pi1 =< lib.fluidContent
 	youtubevideo_pi1 {

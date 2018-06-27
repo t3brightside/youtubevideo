@@ -1,24 +1,3 @@
-$( document ).ready(function() {
-	$('.youtubeVideo').each(function() {
-	  if ($(this).width() < 600){
-	  	$(this).addClass( 'small' );
-	  } else{
-			$(this).removeClass('small')
-		} 
-	});
-});
-
-$(window).resize(function(){
-  $('.youtubeVideo').each(function() {
-	  if ($(this).width() < 600){
-	  	$(this).addClass( 'small' );
-	  } else{
-			$(this).removeClass('small')
-		} 
-	});
-});
-
-
 function getFrameID(id) {
   var elem = document.getElementById(id);
   if (elem) {
@@ -74,7 +53,7 @@ var players = {};
 //Define a player storage object, to enable later function calls,
 //  without having to create a new class instance again.
 YT_ready(function() {
-    $(".coverimage + iframe[id]").each(function() {
+    jQuery(".coverimage + iframe[id]").each(function() {
         var identifier = this.id;
         var frameID = getFrameID(identifier);
         if (frameID) { //If the frame exists
@@ -92,22 +71,22 @@ YT_ready(function() {
 function createYTEvent(frameID, identifier) {
     return function (event) {
         var player = players[frameID]; // player object
-        var the_div = $('#'+identifier).parent();
+        var the_div = jQuery('#'+identifier).parent();
         the_div.children('.coverimage').click(function() {
-            var $this = $(this);
+            var $this = jQuery(this);
             $this.fadeOut().next().addClass('play');
             if ($this.next().hasClass('play')) {
                 player.playVideo();
             }
             setTimeout(doSomething, 700);
             function doSomething() {
-	        	$('#'+frameID).show();
+	        	jQuery('#'+frameID).show();
 	        };
         });
     }
 }
 
-  
+
 // Load YouTube Frame API
 (function(){ //Closure, to not leak to the scope
   var s = document.createElement("script");
@@ -115,5 +94,3 @@ function createYTEvent(frameID, identifier) {
   var before = document.getElementsByTagName("script")[0];
   before.parentNode.insertBefore(s, before);
 })();
-		
-		
