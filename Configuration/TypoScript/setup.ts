@@ -26,7 +26,7 @@ page.jsFooterInline {
 }
 
 tt_content {
-	youtubevideo_pi1 =< lib.fluidContent
+	youtubevideo_pi1 =< lib.contentElement
 	youtubevideo_pi1 {
 	  templateName = Youtubevideo
 	  templateRootPaths.200 = {$youtubevideo.templateRootPaths}
