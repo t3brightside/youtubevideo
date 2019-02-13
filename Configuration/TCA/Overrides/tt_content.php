@@ -38,38 +38,36 @@ $tempColumns = array(
 	'tx_youtubevideo_autoplay' => array (
 		'exclude' => 1,
 		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_autoplay.title',
-		'config' => array (
+		'config' => [
 			'type' => 'check',
-			'items' => array(
-                 array(
-                 	'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo.enable',
-                 ),
-            ),
-		),
-	),
-	'tx_youtubevideo_showinfo' => array (
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_showinfo.title',
-		'config' => array (
-			'type' => 'check',
-			'items' => array(
-                 array(
-                 	'LLL:EXT:lang/locallang_core.xlf:labels.show',
-                 ),
-            ),
-		),
+			'renderType' => 'checkboxToggle',
+			'items' => [
+				[
+					0 => '',
+					1 => '',
+					'behaviour' => [
+						'allowLanguageSynchronization' => true,
+					],
+				]
+			],
+		]
 	),
     'tx_youtubevideo_rel' => array (
 		'exclude' => 1,
 		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_rel.title',
-		'config' => array (
+		'config' => [
 			'type' => 'check',
-			'items' => array(
-                 array(
-                 	'LLL:EXT:lang/locallang_core.xlf:labels.show',
-                 ),
-            ),
-		),
+			'renderType' => 'checkboxToggle',
+			'items' => [
+				[
+					0 => '',
+					1 => '',
+					'behaviour' => [
+						'allowLanguageSynchronization' => true,
+					],
+				]
+			],
+		]
 	),
 	'tx_youtubevideo_startminute' => array(
 		'exclude' => 0,
@@ -101,26 +99,37 @@ $tempColumns = array(
     'tx_youtubevideo_fullscreen' => array (
 		'exclude' => 1,
 		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_fullscreen.title',
-		'config' => array (
+		'config' => [
 			'type' => 'check',
-			'items' => array(
-                 array(
-                 	'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo.disable',
-                 ),
-            ),
-		),
+			'renderType' => 'checkboxToggle',
+			'items' => [
+				[
+					0 => '',
+					1 => '',
+					'invertStateDisplay' => true,
+					'behaviour' => [
+						'allowLanguageSynchronization' => true,
+					],
+				]
+			],
+		]
 	),
 	'tx_youtubevideo_loop' => array (
 		'exclude' => 1,
 		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_loop.title',
-		'config' => array (
+		'config' => [
 			'type' => 'check',
-			'items' => array(
-				array(
-					'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo.enable',
-				),
-      ),
-		),
+			'renderType' => 'checkboxToggle',
+			'items' => [
+				[
+					0 => '',
+					1 => '',
+					'behaviour' => [
+						'allowLanguageSynchronization' => true,
+					],
+				]
+			],
+		]
 	),
 	'tx_youtubevideo_covertitle' => array(
 		'exclude' => 1,
@@ -138,8 +147,43 @@ $tempColumns = array(
 			'size' => '50',
 		),
 	),
+	'image' => [
+		'exclude' => 1,
+		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_cover.image',
+		'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+			'image',
+			[
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
+				'appearance' => [
+					'headerThumbnail' => [
+						'width' => '100',
+						'height' => '60',
+					],
+					'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+				],
+				'overrideChildTca' => [
+					'types' => [
+						'0' => [
+							'showitem' => '
+								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+								--palette--;;filePalette'
+						],
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+							'showitem' => '
+								crop,
+								--palette--;;filePalette'
+						],
+
+					],
+				],
+			],
+			$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+		),
+	],
 );
-	
+
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tt_content', 'EXT:youtubevideo/Resources/Private/Language/locallang_db.xml');
 
@@ -166,12 +210,12 @@ $tempColumns = array(
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
 		--div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
 	';
-			
+
 	$GLOBALS['TCA']['tt_content']['palettes']['youtubevideoMain']['showitem'] = '
 		tx_youtubevideo_url,
 		--linebreak--,
 		tx_youtubevideo_caption';
-	
+
 	$GLOBALS['TCA']['tt_content']['palettes']['youtubevideoSettings']['showitem'] = '
 		tx_youtubevideo_ratio,tx_youtubevideo_startminute,tx_youtubevideo_startsecond,
 		--linebreak--,

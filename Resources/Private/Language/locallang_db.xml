@@ -9,12 +9,12 @@
 
 			<label index="tx_youtubevideo.title">YouTube Video</label>
 			<label index="tx_youtubevideo.settings">Video Settings</label>
-			
-			<label index="tx_youtubevideo.cover">Cover</label>
-						
-			<label index="tx_youtubevideo_url.title">YouTube URL</label>		
+
+			<label index="tx_youtubevideo.cover">Video Cover</label>
+
+			<label index="tx_youtubevideo_url.title">YouTube URL</label>
 			<label index="tx_youtubevideo_url.description">Paste the YouTube video URL as it is.</label>
-	
+
 			<label index="tx_youtubevideo_caption.title">Description (Caption)</label>
 			<label index="tx_youtubevideo_caption.description">Usually the description of the video content in few words.</label>
 
@@ -23,7 +23,7 @@
 
 			<label index="tx_youtubevideo_autoplay.title">Autoplay</label>
 			<label index="tx_youtubevideo_autoplay.description">Starts video playback automatically on page load.</label>
-			
+
 			<label index="tx_youtubevideo_showinfo.title">Video Info</label>
 			<label index="tx_youtubevideo_showinfo.description">Shows information (title, etc.) from YouTube.</label>
 
@@ -35,24 +35,24 @@
 
 			<label index="tx_youtubevideo_startsecond.title">Start Second</label>
 			<label index="tx_youtubevideo_startsecond.description">Starts video at this second.</label>
-			
+
 			<label index="tx_youtubevideo_fullscreen.title">Fullscreen</label>
 			<label index="tx_youtubevideo_fullscreen.description">Disables and enables fullscreen option.</label>
-			
+
 			<label index="tx_youtubevideo_loop.title">Loop</label>
 			<label index="tx_youtubevideo_loop.description">Sets looping on and off.</label>
-			
+
 			<label index="tx_youtubevideo.enable">Enable</label>
 
 			<label index="tx_youtubevideo.disable">Disable</label>
-			<label index="tx_youtubevideo.show">Show</label>
-			
-			<label index="tx_youtubevideo_covertitle.title">Cover title</label>
+
+			<label index="tx_youtubevideo_covertitle.title">Cover Title</label>
 			<label index="tx_youtubevideo_covertitle.description">Title shown over cover image.</label>
 
-			<label index="tx_youtubevideo_covertext.title">Cover text</label>
+			<label index="tx_youtubevideo_covertext.title">Cover Text</label>
 			<label index="tx_youtubevideo_covertext.description">Text shown over cover image under the title.</label>
 
+			<label index="tx_youtubevideo_cover.image">Cover Image</label>
 		</languageKey>
 	</data>
 </T3locallang>
