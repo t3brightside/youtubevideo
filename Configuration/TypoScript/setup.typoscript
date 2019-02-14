@@ -38,9 +38,9 @@ tt_content {
 }
 plugin.tx_youtubevideo {
   render {
-		# language code use de, fr, et etc.
-		hl = TEXT
-		hl.value = {$youtubevideo.hl}
+	# language code use de, fr, et etc.
+	hl = TEXT
+	hl.data = siteLanguage:iso-639-1
 
     # wide screen 16:9 value (math behind: 9 * 100 / 16 = 56.25)
     ratioDefault = TEXT
