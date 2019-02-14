@@ -151,3 +151,5 @@
 		– TYPO3 9.5 compatible only
 		– Showinfo removed as depricated in youtube
 		– Add mute parameter if autoplay is on
+		– Rename .ts to .typoscript
+		- Automatically set language by the site configuration
