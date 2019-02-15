@@ -155,4 +155,4 @@
 		- Automatically set language by the site configuration
 		- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
 		- BREAKING!!! – For custom templates and partials! Change render values to variables in TS setup, partials and templates.
-		- BREAKING!!! – By default custom play button is not enabled any more. Changed in TS constants. Custom play button and cover makes the user click play twice in some browsers now.
+		- BREAKING!!! – Custom play button is NOT enabled by default any more. Changed in TS constants. Custom play button and cover makes the users click twice to play the video in some browsers.
