@@ -41,7 +41,8 @@ Installation
 ------------
 -  Install from TER (**youtubevideo**) or Composer (**t3brightside/youtubevideo**)
 -  Include static template
--  Disable default JS in constants if no cover image or custom play button is needed
+-  jQuery is needed for the cover image and text to function
+-  Disable default JS in constants if no cover image, text or custom play button is needed
 -  Change breakpoint JS to 'vanilla' or 'none' if no jQuery present in the system
 
 Usage
