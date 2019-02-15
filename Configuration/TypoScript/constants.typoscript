@@ -1,11 +1,11 @@
 # cat=Youtubevideo/1; type=int+; label= Max width of the custom cover image in px
 youtubevideo.coverimagewidth = 1280
-# cat=Youtubevideo/1; type=boolean[1]; label= Enable cover image fetching and custom play button even without cover text
-youtubevideo.enablecovertoall = 1
+# cat=Youtubevideo/1; type=boolean[1]; label= Enable custom play button even without cover text (Note! In some browsers user needs to click twice to play the video)
+youtubevideo.enablecovertoall = 0
 # cat=Youtubevideo/1; type=boolean[1]; label= Disable Youtube logo in video control bar
 youtubevideo.modestbranding = 0
-# cat=Page List/pagelist; type=options[vanilla,jQuery,none]; label=Activate breakpoint for small videos
-youtubevideo.enableBreakpoint = vanilla
+# cat=Youtubevideo/1; type=options[vanilla,jQuery,none]; label=Activate breakpoint for small videos
+youtubevideo.enableBreakpoint = jQuery
 # cat=Youtubevideo/1; type=int+; label= If video is smaller this width and breakpoint is activated the play button will be placed in upper right corner
 youtubevideo.breakpoint = 600
 # cat=Youtubevideo/1; type=string; label= Template root paths

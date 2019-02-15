@@ -18,7 +18,7 @@
 					<f:if condition="{data.tx_youtubevideo_autoplay}">
 						<f:then></f:then>
 						<f:else>
-							<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall')}">
+							<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall}">
 								<f:render partial="Coverimage" arguments="{_all}" />
 							</f:if>
 						</f:else>

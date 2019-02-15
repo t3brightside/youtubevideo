@@ -8,9 +8,9 @@ YouTube Video
 System requirements
 -------------------
 
-- TYPO3 8.7 LTS – 9.*
+- TYPO3 8.7 LTS, TYPO3 9.5 LTS only since 1.3.0
 - fluid_styled_content
-- jQuery
+- jQuery (recommended)
 
 Features
 --------
@@ -41,6 +41,8 @@ Installation
 ------------
 -  Install from TER (**youtubevideo**) or Composer (**t3brightside/youtubevideo**)
 -  Include static template
+-  Disable default JS in constants if no cover image or custom play button is needed
+-  Change breakpoint JS to 'vanilla' or 'none' if no jQuery present in the system
 
 Usage
 -----

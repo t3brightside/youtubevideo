@@ -153,5 +153,6 @@
 		– Add mute parameter if autoplay is on
 		– Rename .ts to .typoscript
 		- Automatically set language by the site configuration
-		- Change render values to variables in TS setup
 		- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
+		- BREAKING!!! – For custom templates and partials! Change render values to variables in TS setup, partials and templates.
+		- BREAKING!!! – By default custom play button is not enabled any more. Changed in TS constants. Custom play button and cover makes the user click play twice in some browsers now.
