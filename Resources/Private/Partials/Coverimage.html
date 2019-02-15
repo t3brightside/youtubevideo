@@ -1,8 +1,8 @@
 <a class="coverimage" style="background:url(
 	<f:if condition="{files.0}">
-		<f:then><f:uri.image src="{files.0.uid}" maxWidth="{f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.coverimagewidth')}" treatIdAsReference="1" /></f:then>
+		<f:then><f:uri.image src="{files.0.uid}" maxWidth="{coverimagewidth}" treatIdAsReference="1" /></f:then>
 		<f:else>
-			<f:if condition="{f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.coverimagewidth')} <= 480 || {nomaxrescover}">
+			<f:if condition="{coverimagewidth} <= 480 || {nomaxrescover}">
 				<f:then>https://i.ytimg.com/vi/{code}/hqdefault.jpg</f:then>
 				<f:else>https://i.ytimg.com/vi/{code}/maxresdefault.jpg</f:else>
 			</f:if>

@@ -12,24 +12,20 @@
 			<figure>
 				<div class="videoWrapper v{data.uid} <f:if condition="{files.0}">coverimaged autoplay{data.tx_youtubevideo_autoplay}</f:if>" style="
 					padding-bottom:
-						<f:if condition="{data.tx_youtubevideo_ratio} == 0">
-							<f:CObject typoscriptObjectPath="plugin.tx_youtubevideo.render.ratioDefault" />%
-						</f:if>
-						<f:if condition="{data.tx_youtubevideo_ratio} == 1">
-							<f:CObject typoscriptObjectPath="plugin.tx_youtubevideo.render.ratio1" />%
-						</f:if>;
+						<f:if condition="{data.tx_youtubevideo_ratio} == 0">{ratioDefault}%</f:if>
+						<f:if condition="{data.tx_youtubevideo_ratio} == 1">{ratio1}%</f:if>;
 					">
 					<f:if condition="{data.tx_youtubevideo_autoplay}">
 						<f:then></f:then>
 						<f:else>
-							<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.enablecovertoall')}">
+							<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall')}">
 								<f:render partial="Coverimage" arguments="{_all}" />
 							</f:if>
 						</f:else>
 					</f:if>
 					<iframe
 						id="frame{data.uid}"
-						src="https://www.youtube-nocookie.com/embed/{code}?modestbranding={f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.modestbranding')}&amp;hl={f:cObject(typoscriptObjectPath:'plugin.tx_youtubevideo.render.hl')}&amp;autoplay={data.tx_youtubevideo_autoplay}&mute={data.tx_youtubevideo_autoplay}&amp;rel={data.tx_youtubevideo_rel}&amp;html5=1&amp;enablejsapi=1<f:if condition="{data.tx_youtubevideo_fullscreen}">&amp;fs=0</f:if><f:if condition="{data.tx_youtubevideo_loop}">&amp;loop=1&amp;playlist={code}</f:if><f:if condition="{start}">&amp;start={start}</f:if>"
+						src="https://www.youtube-nocookie.com/embed/{code}?modestbranding={modestbranding}&amp;hl={hl}&amp;autoplay={data.tx_youtubevideo_autoplay}&mute={data.tx_youtubevideo_autoplay}&amp;rel={data.tx_youtubevideo_rel}&amp;html5=1&amp;enablejsapi=1<f:if condition="{data.tx_youtubevideo_fullscreen}">&amp;fs=0</f:if><f:if condition="{data.tx_youtubevideo_loop}">&amp;loop=1&amp;playlist={code}</f:if><f:if condition="{start}">&amp;start={start}</f:if>"
 						allowfullscreen>
 					</iframe>
 				</div>

@@ -146,10 +146,12 @@
 	* 1.2.3
 		– Composer package added, repo moved to github
 		– README.rst added
-2018-02-13
+2018-02-15
 	* 1.3.0
 		– TYPO3 9.5 compatible only
-		– Showinfo removed as depricated in youtube
+		– Showinfo removed as deprecated in youtube
 		– Add mute parameter if autoplay is on
 		– Rename .ts to .typoscript
 		- Automatically set language by the site configuration
+		- Change render values to variables in TS setup
+		- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
