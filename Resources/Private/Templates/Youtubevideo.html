@@ -25,7 +25,7 @@
 					</f:if>
 					<iframe
 						id="frame{data.uid}"
-						src="https://www.youtube-nocookie.com/embed/{code}?modestbranding={modestbranding}&amp;hl={hl}&amp;autoplay={data.tx_youtubevideo_autoplay}&mute={data.tx_youtubevideo_autoplay}&amp;rel={data.tx_youtubevideo_rel}&amp;html5=1&amp;enablejsapi=1<f:if condition="{data.tx_youtubevideo_fullscreen}">&amp;fs=0</f:if><f:if condition="{data.tx_youtubevideo_loop}">&amp;loop=1&amp;playlist={code}</f:if><f:if condition="{start}">&amp;start={start}</f:if>"
+						src="https://www.youtube-nocookie.com/embed/{code}?modestbranding={modestbranding}&amp;hl={hl}&amp;autoplay={data.tx_youtubevideo_autoplay}&mute=<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall}"><f:then>1</f:then><f:else>{data.tx_youtubevideo_autoplay}</f:else></f:if>&amp;rel={data.tx_youtubevideo_rel}&amp;html5=1&amp;enablejsapi=1<f:if condition="{data.tx_youtubevideo_fullscreen}">&amp;fs=0</f:if><f:if condition="{data.tx_youtubevideo_loop}">&amp;loop=1&amp;playlist={code}</f:if><f:if condition="{start}">&amp;start={start}</f:if>"
 						allowfullscreen>
 					</iframe>
 				</div>
