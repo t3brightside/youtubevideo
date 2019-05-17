@@ -15,174 +15,176 @@ defined('TYPO3_MODE') || die('Access denied.');
 		)
 	);
 
-
-$tempColumns = array(
-	'tx_youtubevideo_url' => array(
-		'exclude' => 0,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_url.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '50',
-			'eval' => 'required',
-			'requiredCond' => '!field',
+	$tempColumns = array(
+		'tx_youtubevideo_url' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_url.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '50',
+				'eval' => 'required',
+				'requiredCond' => '!field',
+			),
 		),
-	),
-	'tx_youtubevideo_caption' => array(
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_caption.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '50',
+		'tx_youtubevideo_caption' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_caption.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '50',
+			),
 		),
-	),
-	'tx_youtubevideo_autoplay' => array (
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_autoplay.title',
-		'config' => [
-			'type' => 'check',
-			'renderType' => 'checkboxToggle',
-			'items' => [
-				[
-					0 => '',
-					1 => '',
-					'behaviour' => [
-						'allowLanguageSynchronization' => true,
-					],
-				]
-			],
-		]
-	),
-    'tx_youtubevideo_rel' => array (
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_rel.title',
-		'config' => [
-			'type' => 'check',
-			'renderType' => 'checkboxToggle',
-			'items' => [
-				[
-					0 => '',
-					1 => '',
-					'behaviour' => [
-						'allowLanguageSynchronization' => true,
-					],
-				]
-			],
-		]
-	),
-	'tx_youtubevideo_startminute' => array(
-		'exclude' => 0,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_startminute.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '1',
-		),
-	),
-	'tx_youtubevideo_startsecond' => array(
-		'exclude' => 0,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_startsecond.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '1',
-		),
-	),
-	'tx_youtubevideo_ratio' => array(
-        'exclude' => 1,
-        'label'   => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_ratio.title',
-        'config'  => array(
-            'type'     => 'select',
-            'renderType' => 'selectSingle',
-            'items'    => array(), /* items set in page TsConfig */
-            'size'     => 1,
-            'maxitems' => 1
-        )
-    ),
-    'tx_youtubevideo_fullscreen' => array (
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_fullscreen.title',
-		'config' => [
-			'type' => 'check',
-			'renderType' => 'checkboxToggle',
-			'items' => [
-				[
-					0 => '',
-					1 => '',
-					'invertStateDisplay' => true,
-					'behaviour' => [
-						'allowLanguageSynchronization' => true,
-					],
-				]
-			],
-		]
-	),
-	'tx_youtubevideo_loop' => array (
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_loop.title',
-		'config' => [
-			'type' => 'check',
-			'renderType' => 'checkboxToggle',
-			'items' => [
-				[
-					0 => '',
-					1 => '',
-					'behaviour' => [
-						'allowLanguageSynchronization' => true,
-					],
-				]
-			],
-		]
-	),
-	'tx_youtubevideo_covertitle' => array(
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_covertitle.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '50',
-		),
-	),
-	'tx_youtubevideo_covertext' => array(
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_covertext.title',
-		'config' => array(
-			'type' => 'input',
-			'size' => '50',
-		),
-	),
-	'image' => [
-		'exclude' => 1,
-		'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_cover.image',
-		'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-			'image',
-			[
-				'behaviour' => [
-					'allowLanguageSynchronization' => true,
-				],
-				'appearance' => [
-					'headerThumbnail' => [
-						'width' => '100',
-						'height' => '60',
-					],
-					'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-				],
-				'overrideChildTca' => [
-					'types' => [
-						'0' => [
-							'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-								--palette--;;filePalette'
+		'tx_youtubevideo_autoplay' => array (
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_autoplay.title',
+			'config' => [
+				'type' => 'check',
+				'renderType' => 'checkboxToggle',
+				'items' => [
+					[
+						0 => '',
+						1 => '',
+						'behaviour' => [
+							'allowLanguageSynchronization' => true,
 						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-							'showitem' => '
-								crop,
-								--palette--;;filePalette'
+					]
+				],
+			]
+		),
+	    'tx_youtubevideo_rel' => array (
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_rel.title',
+			'config' => [
+				'type' => 'check',
+				'renderType' => 'checkboxToggle',
+				'items' => [
+					[
+						0 => '',
+						1 => '',
+						'behaviour' => [
+							'allowLanguageSynchronization' => true,
 						],
+					]
+				],
+			]
+		),
+		'tx_youtubevideo_startminute' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_startminute.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '1',
+			),
+		),
+		'tx_youtubevideo_startsecond' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_startsecond.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '1',
+			),
+		),
+		'tx_youtubevideo_ratio' => array(
+	        'exclude' => 1,
+	        'label'   => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_ratio.title',
+	        'config'  => array(
+	            'type'     => 'select',
+	            'renderType' => 'selectSingle',
+	            'items'    => array(), /* items set in page TsConfig */
+	            'size'     => 1,
+	            'maxitems' => 1
+	        )
+	    ),
+	    'tx_youtubevideo_fullscreen' => array (
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_fullscreen.title',
+			'config' => [
+				'type' => 'check',
+				'renderType' => 'checkboxToggle',
+				'items' => [
+					[
+						0 => '',
+						1 => '',
+						'invertStateDisplay' => true,
+						'behaviour' => [
+							'allowLanguageSynchronization' => true,
+						],
+					]
+				],
+			]
+		),
+		'tx_youtubevideo_loop' => array (
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_loop.title',
+			'config' => [
+				'type' => 'check',
+				'renderType' => 'checkboxToggle',
+				'items' => [
+					[
+						0 => '',
+						1 => '',
+						'behaviour' => [
+							'allowLanguageSynchronization' => true,
+						],
+					]
+				],
+			]
+		),
+		'tx_youtubevideo_covertitle' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_covertitle.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '50',
+			),
+		),
+		'tx_youtubevideo_covertext' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_covertext.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => '50',
+			),
+		),
+	);
 
+	$GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['columnsOverrides'] = array(
+		'image' => [
+			'exclude' => 1,
+			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xml:tx_youtubevideo_cover.image',
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'image',
+				[
+					'behaviour' => [
+						'allowLanguageSynchronization' => true,
+					],
+					'appearance' => [
+						'headerThumbnail' => [
+							'width' => '100',
+							'height' => '60',
+						],
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+					],
+					'overrideChildTca' => [
+						'types' => [
+							'0' => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+								'showitem' => '
+									crop,
+									--palette--;;filePalette'
+							],
+
+						],
 					],
 				],
-			],
-			$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-		),
-	],
-);
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+		],
+	);
 
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tt_content', 'EXT:youtubevideo/Resources/Private/Language/locallang_db.xml');
