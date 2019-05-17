@@ -156,6 +156,7 @@
 		- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
 		- BREAKING!!! – For custom templates and partials! Change render values to variables in TS setup, partials and templates.
 		- BREAKING!!! – Custom play button is NOT enabled by default any more. Changed in TS constants. Custom play button and cover makes the users click twice to play the video in some browsers.
-2018-03-23
+2018-05-17
 	* 1.3.1
 		– Adding mute if cover image or text is active. Chrome wouldn't play video without it.
+		- Fix cover image conflict with image fields in other content types
