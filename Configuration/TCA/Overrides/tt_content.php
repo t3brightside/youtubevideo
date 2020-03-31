@@ -92,7 +92,10 @@ defined('TYPO3_MODE') || die('Access denied.');
 	            'renderType' => 'selectSingle',
 	            'items'    => array(), /* items set in page TsConfig */
 	            'size'     => 1,
-	            'maxitems' => 1
+	            'maxitems' => 1,
+              'behaviour' => [
+                'allowLanguageSynchronization' => true,
+              ]
 	        )
 	    ),
 	    'tx_youtubevideo_fullscreen' => array (
