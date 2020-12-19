@@ -74,6 +74,8 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => array(
 				'type' => 'input',
 				'size' => '1',
+				'default' => 0,
+                'eval' => 'int',
 			),
 		),
 		'tx_youtubevideo_startsecond' => array(
@@ -82,6 +84,8 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => array(
 				'type' => 'input',
 				'size' => '1',
+				'default' => 0,
+                'eval' => 'int',
 			),
 		),
 		'tx_youtubevideo_ratio' => array(
