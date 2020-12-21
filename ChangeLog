@@ -163,3 +163,6 @@
 2020-05-19
 	* 1.4.0
 		– TYPO3 10 LTS support
+2020-12-21
+	* 1.4.1
+		– MySQL strict mode support for start minute and second field, thanks @tgaertner
