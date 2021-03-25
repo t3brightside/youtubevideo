@@ -166,3 +166,6 @@
 2020-12-21
 	* 1.4.1
 		– MySQL strict mode support for start minute and second field, thanks @tgaertner
+2021-03-25
+	* 1.4.2
+		– TYPO3 11 compatibility
