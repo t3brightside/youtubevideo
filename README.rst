@@ -8,7 +8,7 @@ YouTube Video
 System requirements
 -------------------
 
-- TYPO3 8.7 LTS, TYPO3 9.5 LTS & 10.4 LTS only since 1.3.0
+- TYPO3 8.7 LTS, TYPO3 9.5 LTS to 11 only since 1.3.0
 - fluid_styled_content
 - jQuery (recommended)
 
