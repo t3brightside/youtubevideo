@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-02-23T18:12:17Z"
+		  product-name="content_slug">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.tx_content_slug_fragment">
+				<source>Human-readable URL #anchor</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.title">
+			  <source>YouTube Video</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.settings">
+			  <source>Video Settings</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.cover">
+			  <source>Video Cover</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_url.title">
+			  <source>YouTube URL</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_url.description">
+			  <source>Paste the YouTube video URL as it is.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_caption.title">
+			  <source>Description (Caption)</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_caption.description">
+			  <source>Usually the description of the video content in few words.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_ratio.title">
+			  <source>Aspect Ratio</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_ratio.description">
+			  <source>Changes video width and height ratio.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_autoplay.title">
+			  <source>Autoplay</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_autoplay.description">
+			  <source>Starts video playback automatically on page load.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_showinfo.title">
+			  <source>Video Info</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_showinfo.description">
+			  <source>Shows information (title, etc.) from YouTube.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_rel.title">
+			  <source>Related Videos</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_rel.description">
+			  <source>Shows related videos from YouTube at the end of the video.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_startminute.title">
+			  <source>Start Minute</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_startminute.description">
+			  <source>Starts video at this minute.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_startsecond.title">
+			  <source>Start Second</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_startsecond.description">
+			  <source>Starts video at this second.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_fullscreen.title">
+			  <source>Fullscreen</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_fullscreen.description">
+			  <source>Disables and enables fullscreen option.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_loop.title">
+			  <source>Loop</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_loop.description">
+			  <source>Sets looping on and off.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.enable">
+			  <source>Enable</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.disable">
+			  <source>Disable</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_covertitle.title">
+			  <source>Cover Title</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_covertitle.description">
+			  <source>Title shown over cover image.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_covertext.title">
+			  <source>Cover Text</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_covertext.description">
+			  <source>Text shown over cover image under the title.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_cover.image">
+			  <source>Cover Image</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
