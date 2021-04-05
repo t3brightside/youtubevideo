@@ -66,9 +66,8 @@ Sources
 Development and maintenance
 ---------------------------
 
-`Brightside OÜ`_ – TYPO3 development and hosting specialised web agency
+[Brightside OÜ – TYPO3 development and hosting specialised web agency](https://t3brightside.com/)
 
 .. _GitHub: https://github.com/t3brightside/youtubevideo
 .. _Packagist: https://packagist.org/packages/t3brightside/youtubevideo
 .. _TER: https://extensions.typo3.org/extension/youtubevideo/
-.. _Brightside OÜ: https://t3brightside.com/
