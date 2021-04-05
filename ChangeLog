@@ -170,3 +170,7 @@
 	* 1.4.2
 		– TYPO3 11 compatibility
 		– Language file from XML to XLF
+2021-04-05
+	* 1.4.3
+		– README to md format
+		– Move ext icons to Resources/Public
