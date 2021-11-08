@@ -5,10 +5,10 @@
   "version": "1.4.3",
   "keywords": ["TYPO3", "YouTube", "video", "responsive"],
   "homepage": "https://github.com/t3brightside/youtubevideo/",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
-      "name": "Brightside OÜ – TYPO3 development and hosting specialised web agency",
+      "name": "Tanel Põld",
       "role": "Developer",
       "email": "info@t3brightside.com",
       "homepage": "https://t3brightside.com"
