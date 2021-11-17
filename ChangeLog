@@ -126,3 +126,7 @@
 	- [FEATURE] Cover image crop ratio and automatic selection by video ratio
 	- [FEATURE] Cover image user rights
 	- [TASK] Remove jQuery setting breakpoint class for video container leaving vanilla only
+	- [FEATURE] Add cover image migration upgrade wizard to migrate images from tt_content.image to tt_content.tx_youtubevideo_coverimage
+	- Upgrade instructions:
+		- Back up your database
+		- Run Upgrade Wizard, it detects if there's any image fields to migrate
