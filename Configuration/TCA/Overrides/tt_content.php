@@ -153,43 +153,79 @@ defined('TYPO3_MODE') || die('Access denied.');
 				'size' => '50',
 			),
 		),
-	);
-
-	$GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['columnsOverrides'] = array(
-		'image' => [
+		'tx_youtubevideo_coverimage' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_cover.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image',
+				'tx_youtubevideo_cover',
 				[
 					'behaviour' => [
 						'allowLanguageSynchronization' => true,
 					],
-					'appearance' => [
-						'headerThumbnail' => [
-							'width' => '100',
-							'height' => '60',
-						],
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-					],
 					'overrideChildTca' => [
-						'types' => [
-							'0' => [
-								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-									--palette--;;filePalette'
+						'columns' => [
+							'crop' => [
+								'config' => [
+									'cropVariants' => [
+										'default' => [
+											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+											'allowedAspectRatios' => [
+												'16:9' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+													'value' => 16 / 9
+												],
+												'4:3' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+													'value' => 4 / 3
+												],
+												'NaN' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+													'value' => 0.0
+												],
+											],
+											'selectedRatio' => '16:9',
+											'cropArea' => [
+												'x' => 0.0,
+												'y' => 0.0,
+												'width' => 1.0,
+												'height' => 1.0,
+											],
+										],
+										'widescreen' => [
+											'title' => 'Widescreen (16:9)',
+											'selectedRatio' => '16:9',
+											'allowedAspectRatios' => [
+												'16:9' => [
+													'title' => 'Widescreen',
+													'value' => 16 / 9,
+												],
+											],
+										],
+										'tv' => [
+											'title' => 'Standard (4:3)',
+											'selectedRatio' => '4:3',
+											'allowedAspectRatios' => [
+												'4:3' => [
+													'title' => 'TV',
+													'value' => 4 / 3,
+												],
+											],
+										],
+									],
+								],
 							],
+						],
+						'types' => [
 							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
 								'showitem' => '
-									crop,
-									--palette--;;filePalette'
-							],
-
+								crop,
+								--palette--;;filePalette'
 						],
 					],
 				],
-				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-			),
+			],
+			$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+		),
 		],
 	);
 
@@ -231,7 +267,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 		tx_youtubevideo_autoplay,tx_youtubevideo_showinfo,tx_youtubevideo_rel,tx_youtubevideo_fullscreen,tx_youtubevideo_loop,
 	';
 	$GLOBALS['TCA']['tt_content']['palettes']['youtubevideoCoverimage']['showitem'] = '
-		tx_youtubevideo_covertitle,tx_youtubevideo_covertext,--linebreak--,image';
+		tx_youtubevideo_covertitle,tx_youtubevideo_covertext,--linebreak--,tx_youtubevideo_coverimage';
 
 
 	$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['youtubevideo_pi1'] =  'youtubevideo_icon';

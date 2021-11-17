@@ -12,5 +12,6 @@ CREATE TABLE tt_content (
 	tx_youtubevideo_fullscreen tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	tx_youtubevideo_loop tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	tx_youtubevideo_covertitle tinytext,
-	tx_youtubevideo_covertext tinytext
+	tx_youtubevideo_covertext tinytext,
+	tx_youtubevideo_coverimage int(1) DEFAULT '0' NOT NULL,
 );
