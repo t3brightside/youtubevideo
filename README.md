@@ -11,7 +11,7 @@
 
 ## System requirements
 
-- TYPO3 8.7 LTS, TYPO3 9.5 LTS to 11 only since 1.3.0
+- TYPO3 8.7 LTS, TYPO3 9.5 LTS to 11.5 only since 1.3.0
 - fluid_styled_content
 - jQuery (recommended)
 
@@ -20,7 +20,7 @@
 - Regular content element settings (title, access, etc.)
 - Parses all kinds of dirty YouTube links, youtu.be included
 - Custom cover image
-- Cover image title and text
+- Cover image title, text and predefined crop ratios
 - Video caption
 - Video aspect ratio (16:9, 4:3, configurable). Multiple aspect ratios and different video sizes on same page.
 - Video start time (min/sec)
