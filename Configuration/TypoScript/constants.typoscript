@@ -4,8 +4,8 @@ youtubevideo.coverimagewidth = 1280
 youtubevideo.enablecovertoall = 0
 # cat=Youtubevideo/1; type=boolean[1]; label= Disable Youtube logo in video control bar
 youtubevideo.modestbranding = 0
-# cat=Youtubevideo/1; type=options[vanilla,jQuery,none]; label=Activate breakpoint for small videos
-youtubevideo.enableBreakpoint = jQuery
+# cat=Youtubevideo/1; type=boolean[1]; label=Activate breakpoint for small videos
+youtubevideo.enableBreakpoint = 1
 # cat=Youtubevideo/1; type=int+; label= If video is smaller this width and breakpoint is activated the play button will be placed in upper right corner
 youtubevideo.breakpoint = 600
 # cat=Youtubevideo/1; type=string; label= Template root paths

@@ -1,34 +1,7 @@
 page.includeCSS.youtubevideo = {$youtubevideo.cssPath}
 page.includeJSFooterlibs.youtubevideo = {$youtubevideo.javascriptPath}
 
-
-["{$youtubevideo.enableBreakpoint}" == "jQuery"]
-    page.jsFooterInline {
-        10982311 = TEXT
-        10982311.value (
-        	jQuery( document ).ready(function() {
-        		jQuery('.youtubeVideo').each(function() {
-        		  if (jQuery(this).width() < {$youtubevideo.breakpoint}){
-        		  	jQuery(this).addClass( 'small' );
-        		  } else{
-        				jQuery(this).removeClass('small')
-        			}
-        		});
-        	});
-        	jQuery(window).resize(function(){
-        	  jQuery('.youtubeVideo').each(function() {
-        		  if (jQuery(this).width() < {$youtubevideo.breakpoint}){
-        		  	jQuery(this).addClass( 'small' );
-        		  } else{
-        				jQuery(this).removeClass('small')
-        			}
-        		});
-        	});
-        )
-    }
-[END]
-
-["{$youtubevideo.enableBreakpoint}" == "vanilla"]
+["{$youtubevideo.enableBreakpoint}" == "1"]
     page.jsFooterInline {
         10982311 = TEXT
         10982311.value (
