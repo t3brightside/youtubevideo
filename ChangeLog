@@ -1,176 +1,131 @@
-2013-05-16  Tanel Põld  <tanel@brightside.ee>
-
-	* 0.1.0 Beta
-		– Initial release
-
-2013-10-18
-	* 0.2.0
-		– Video caption added
-		– Related video enable option
-		– Show video info enable option
-		– Autoplay enable option
-		– Start time minutes and seconds input fields
-		- TCA layout and collapsable settins panel
-		– Customizable templateRootPath
-
-2014-03-10
-	* 0.3.0
-		– TYPO3 6.2 compatible only (not tested on earlier versions)
-
-2014-03-10
-	* 0.3.1
-		– Fixing dependency to 6.2 only
-
-2014-03-11
-	* 0.4.0
-		– Parsing YouTube video links
-
-2014-03-16
-	* 0.4.1
-		– addPageTSConfig moved to .ts configuration file
-		– Compatibility update now works on TYPO3 6.0 – 6.2 LTS
-
-2014-03-17
-	* 0.5.0
-		– TSConfig configurable aspect ratio dropdown added to the video settings
-		– Default wideo size changed to HD 16:9 in TypoScript setup.txt 720px x 405px
-		– Removed INSTALL.txt
-
-2014-03-18
-	* 0.5.1
-		– Renaming preconfigured aspect ratio options to 'Widescreen (16:9)' and 'Standard (4:3)'
-		– Setting extension icon as content type icon and tuning it up a bit
-
-2014-03-19
-	* 0.5.2
-		– Language file restructured and relocated
-		– Content sensitive help added
-		– YouTube URL field is mandatory now
-		– Relocated PageTS config file
-
-2014-03-20
-	* 0.5.3
-		– Added 'Modestbranding' to reduce YouTube branding in videos
-
-2014-30-08
-	* 0.5.4
-		– page.includeJSFooter.youtubevideo changed to page.includeJSFooterlibs.fitvids in setup.txt
-
-2014-02-09
-	* 0.6.0
-		– fitVids.js removed completely as it was not working with all modern browsers. Pure CSS solution is used. Changes in setup.txt and Index.html template.
-
-2015-05-15
-	* 0.7.0
-		– TYPO3 6.2 tested
-		– TYPO3 7.2 compatibility
-		– HTTPS set as default in embed video template
-2015-05-15
-	* 0.7.1
-		– TYPO3 6.2 compatibility fix in version numbering
-2015-05-21
-	* 0.7.2
-		– Moving column definations to TCA
-		– Sys categories functionality added
-		– ext:gridelements compatibility
-2015-05-21
-	* 0.7.3
-		– Adding fullscreen disable and looping options
-		– Better translations for video options
-2015-07-12
-	* 0.7.4
-		– Showing video and it's settings in back end page module
-2015-09-16
-	* 0.7.5
-		– Bug fixes and TYPO3 7.4 compatibility from Markus Klein
-2015-09-29
-	* 0.7.6
-		– TYPO3 7.5 compatibility
-2015-11-10
-	* 0.7.7
-		– TYPO3 7.6 compatibility
-		– Updated icons ready but not in use
-		– Moved under "Typical Page Content" in New content element wizard
-2015-11-19
-	* 0.7.8
-		– Palettes fix in TCA
-2015-11-20
-	* 0.7.9
-		– Updated icons for TYPO3 7.6
-
-2015-11-23
-	* 0.8.0
-		– TYPO3 6.2 use namespace bug fix
-
-2016-11-11
-	* 0.9.0
-		– TYPO3 8.3 compatibility
-		– Content type icon fix in page module
-2017-01-09
-	* 0.9.1
-		– TYPO3 8.5 compatibility
-2017-03-16
-	* 0.9.2
-		– TYPO3 8.6 compatibility
-2017-03-29
-	* 1.0.0
-		– Dropping support for older than 8.5 TYPO3 versions
-		– Supports fluid_styled_content only
-		– Custom cover image support
-		– Custom play button option
-		– Base CSS file added
-		– JavaScript API enabled and scripts for custom cover image and play button
-2018-01-06
-	* 1.1.0
-		– BREAKING CHANGES for custom templates: Need to modify content arrays {autoplay} to {data.tx_youtubevideo_autoplay} and so on.
-		– DataProcessing instead of controller
-		– Cover image title and description as image overlay text
-2018-02-13
-	* 1.2.0
-		– Bug fix for playing multiple videos with cover image on same page
-		– Improved mobile template
-		– Custom play button and cover image fetching from youtube turned on by default in TypoScript
-		– Dedicated cover title and text fields
-2018-02-20
-	* 1.2.1
-		– jQuery based breakpoints for cover text and play button location styles depending on video container width
-		– Checking available maxres cover image size and fall back to smaller if not present
-		– Inline SVG custom play button and CSS controlled colors
-		– Constant editor
-		– Show cover title and text in back end preview besides the video
-2018-02-27
-	* 1.2.2
-		– Easier to style and change play button, cover image moved to Partials
-		– Play button colour change compatible with ext:microtemplate
-2018-03-20
-	* 1.2.3
-		– Composer package added, repo moved to github
-		– README.rst added
-2018-02-15
-	* 1.3.0
-		– TYPO3 9.5 compatible only
-		– Showinfo removed as deprecated in youtube
-		– Add mute parameter if autoplay is on
-		– Rename .ts to .typoscript
-		- Automatically set language by the site configuration
-		- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
-		- BREAKING!!! – For custom templates and partials! Change render values to variables in TS setup, partials and templates.
-		- BREAKING!!! – Custom play button is NOT enabled by default any more. Changed in TS constants. Custom play button and cover makes the users click twice to play the video in some browsers.
-2018-05-17
-	* 1.3.1
-		– Adding mute if cover image or text is active. Chrome wouldn't play video without it.
-		- Fix cover image conflict with image fields in other content types
-2020-05-19
-	* 1.4.0
-		– TYPO3 10 LTS support
-2020-12-21
-	* 1.4.1
-		– MySQL strict mode support for start minute and second field, thanks @tgaertner
-2021-03-25
-	* 1.4.2
-		– TYPO3 11 compatibility
-		– Language file from XML to XLF
-2021-04-05
-	* 1.4.3
-		– README to md format
-		– Move ext icons to Resources/Public
+* 0.1.0 Beta
+	– Initial release
+* 0.2.0
+	– Video caption added
+	– Related video enable option
+	– Show video info enable option
+	– Autoplay enable option
+	– Start time minutes and seconds input fields
+	- TCA layout and collapsable settins panel
+	– Customizable templateRootPath
+* 0.3.0
+	– TYPO3 6.2 compatible only (not tested on earlier versions)
+* 0.3.1
+	– Fixing dependency to 6.2 only
+* 0.4.0
+	– Parsing YouTube video links
+* 0.4.1
+	– addPageTSConfig moved to .ts configuration file
+	– Compatibility update now works on TYPO3 6.0 – 6.2 LTS
+* 0.5.0
+	– TSConfig configurable aspect ratio dropdown added to the video settings
+	– Default wideo size changed to HD 16:9 in TypoScript setup.txt 720px x 405px
+	– Removed INSTALL.txt
+* 0.5.1
+	– Renaming preconfigured aspect ratio options to 'Widescreen (16:9)' and 'Standard (4:3)'
+	– Setting extension icon as content type icon and tuning it up a bit
+* 0.5.2
+	– Language file restructured and relocated
+	– Content sensitive help added
+	– YouTube URL field is mandatory now
+	– Relocated PageTS config file
+* 0.5.3
+	– Added 'Modestbranding' to reduce YouTube branding in videos
+* 0.5.4
+	– page.includeJSFooter.youtubevideo changed to page.includeJSFooterlibs.fitvids in setup.txt
+* 0.6.0
+	– fitVids.js removed completely as it was not working with all modern browsers. Pure CSS solution is used. Changes in setup.txt and Index.html template.
+* 0.7.0
+	– TYPO3 6.2 tested
+	– TYPO3 7.2 compatibility
+	– HTTPS set as default in embed video template
+* 0.7.1
+	– TYPO3 6.2 compatibility fix in version numbering
+* 0.7.2
+	– Moving column definations to TCA
+	– Sys categories functionality added
+	– ext:gridelements compatibility
+* 0.7.3
+	– Adding fullscreen disable and looping options
+	– Better translations for video options
+* 0.7.4
+	– Showing video and it's settings in back end page module
+* 0.7.5
+	– Bug fixes and TYPO3 7.4 compatibility from Markus Klein
+* 0.7.6
+	– TYPO3 7.5 compatibility
+* 0.7.7
+	– TYPO3 7.6 compatibility
+	– Updated icons ready but not in use
+	– Moved under "Typical Page Content" in New content element wizard
+* 0.7.8
+	– Palettes fix in TCA
+* 0.7.9
+	– Updated icons for TYPO3 7.6
+* 0.8.0
+	– TYPO3 6.2 use namespace bug fix
+* 0.9.0
+	– TYPO3 8.3 compatibility
+	– Content type icon fix in page module
+* 0.9.1
+	– TYPO3 8.5 compatibility
+* 0.9.2
+	– TYPO3 8.6 compatibility
+* 1.0.0
+	– Dropping support for older than 8.5 TYPO3 versions
+	– Supports fluid_styled_content only
+	– Custom cover image support
+	– Custom play button option
+	– Base CSS file added
+	– JavaScript API enabled and scripts for custom cover image and play button
+* 1.1.0
+	– BREAKING CHANGES for custom templates: Need to modify content arrays {autoplay} to {data.tx_youtubevideo_autoplay} and so on.
+	– DataProcessing instead of controller
+	– Cover image title and description as image overlay text
+* 1.2.0
+	– Bug fix for playing multiple videos with cover image on same page
+	– Improved mobile template
+	– Custom play button and cover image fetching from youtube turned on by default in TypoScript
+	– Dedicated cover title and text fields
+* 1.2.1
+	– jQuery based breakpoints for cover text and play button location styles depending on video container width
+	– Checking available maxres cover image size and fall back to smaller if not present
+	– Inline SVG custom play button and CSS controlled colors
+	– Constant editor
+	– Show cover title and text in back end preview besides the video
+* 1.2.2
+	– Easier to style and change play button, cover image moved to Partials
+	– Play button colour change compatible with ext:microtemplate
+* 1.2.3
+	– Composer package added, repo moved to github
+	– README.rst added
+* 1.3.0
+	– TYPO3 9.5 compatible only
+	– Showinfo removed as deprecated in youtube
+	– Add mute parameter if autoplay is on
+	– Rename .ts to .typoscript
+	- Automatically set language by the site configuration
+	- Add breakpoint with vanilla JS if desired, set the constant, jQuery is still default
+	- BREAKING!!! – For custom templates and partials! Change render values to variables in TS setup, partials and templates.
+	- BREAKING!!! – Custom play button is NOT enabled by default any more. Changed in TS constants. Custom play button and cover makes the users click twice to play the video in some browsers.
+* 1.3.1
+	– Adding mute if cover image or text is active. Chrome wouldn't play video without it.
+	- Fix cover image conflict with image fields in other content types
+* 1.4.0
+	– TYPO3 10 LTS support
+* 1.4.1
+	– MySQL strict mode support for start minute and second field, thanks @tgaertner
+* 1.4.2
+	– TYPO3 11 compatibility
+	– Language file from XML to XLF
+* 1.4.3
+	– README to md format
+	– Move ext icons to Resources/Public
+* 2.0.0
+	- TYPO3 11.5 support only
+	- [FEATURE] Cover image crop ratio and automatic selection by video ratio
+	- [FEATURE] Cover image user rights
+	- [TASK] Remove jQuery setting breakpoint class for video container leaving vanilla only
+	- BREAKING CHANGES
+		- SQL to migrate yourself:
+			- tt_content.image to tt_content.tx_youtubevideo_coverimage
