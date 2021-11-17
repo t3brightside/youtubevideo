@@ -24,6 +24,9 @@ defined('TYPO3_MODE') || die('Access denied.');
 				'size' => '50',
 				'eval' => 'required',
 				'requiredCond' => '!field',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 			),
 		),
 		'tx_youtubevideo_caption' => array(
@@ -38,15 +41,15 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'exclude' => 1,
 			'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_autoplay.title',
 			'config' => [
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 				'type' => 'check',
 				'renderType' => 'checkboxToggle',
 				'items' => [
 					[
 						0 => '',
 						1 => '',
-						'behaviour' => [
-							'allowLanguageSynchronization' => true,
-						],
 					]
 				],
 			]
@@ -57,13 +60,13 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => [
 				'type' => 'check',
 				'renderType' => 'checkboxToggle',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 				'items' => [
 					[
 						0 => '',
 						1 => '',
-						'behaviour' => [
-							'allowLanguageSynchronization' => true,
-						],
 					]
 				],
 			]
@@ -75,7 +78,10 @@ defined('TYPO3_MODE') || die('Access denied.');
 				'type' => 'input',
 				'size' => '1',
 				'default' => 0,
-                'eval' => 'int',
+        'eval' => 'int',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 			),
 		),
 		'tx_youtubevideo_startsecond' => array(
@@ -85,7 +91,10 @@ defined('TYPO3_MODE') || die('Access denied.');
 				'type' => 'input',
 				'size' => '1',
 				'default' => 0,
-                'eval' => 'int',
+        'eval' => 'int',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 			),
 		),
 		'tx_youtubevideo_ratio' => array(
@@ -108,14 +117,14 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => [
 				'type' => 'check',
 				'renderType' => 'checkboxToggle',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 				'items' => [
 					[
 						0 => '',
 						1 => '',
 						'invertStateDisplay' => true,
-						'behaviour' => [
-							'allowLanguageSynchronization' => true,
-						],
 					]
 				],
 			]
@@ -126,13 +135,13 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => [
 				'type' => 'check',
 				'renderType' => 'checkboxToggle',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true,
+				],
 				'items' => [
 					[
 						0 => '',
 						1 => '',
-						'behaviour' => [
-							'allowLanguageSynchronization' => true,
-						],
 					]
 				],
 			]
