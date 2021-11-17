@@ -128,4 +128,4 @@
 	- [TASK] Remove jQuery setting breakpoint class for video container leaving vanilla only
 	- BREAKING CHANGES
 		- SQL to migrate yourself:
-			- tt_content.image to tt_content.tx_youtubevideo_coverimage
+			- UPDATE tt_content SET tx_youtubevideo_coverimage = image WHERE tt_content.cType = 'youtubevideo_pi1';
