@@ -1,6 +1,14 @@
 <a class="coverimage" style="background:url(
 	<f:if condition="{files.0}">
-		<f:then><f:uri.image src="{files.0.uid}" maxWidth="{coverimagewidth}" treatIdAsReference="1" /></f:then>
+		<f:then>
+			<f:comment><f:uri.image src="{files.0.uid}" maxWidth="{coverimagewidth}" treatIdAsReference="1" /></f:comment>
+			<f:uri.image
+				src="{files.0.uid}"
+				treatIdAsReference="1"
+				width="{settings.cardImageWidth}"
+				cropVariant="{f:if(condition: data.tx_youtubevideo_ratio, then: 'tv', else: 'widescreen')}"
+			/>
+		</f:then>
 		<f:else>
 			<f:if condition="{coverimagewidth} <= 480 || {nomaxrescover}">
 				<f:then>https://i.ytimg.com/vi/{code}/hqdefault.jpg</f:then>

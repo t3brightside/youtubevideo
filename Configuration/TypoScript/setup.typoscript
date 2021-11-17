@@ -32,7 +32,10 @@ tt_content {
         templateRootPaths.200 = {$youtubevideo.templateRootPaths}
         partialRootPaths.200 = {$youtubevideo.partialRootPaths}
         dataProcessing.5 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-        dataProcessing.5.references.fieldName = image
+        dataProcessing.5 {
+          references.fieldName = tx_youtubevideo_coverimage
+          as = files
+        }
         dataProcessing.10 = Brightside\Youtubevideo\DataProcessing\DatabaseCustomQueryProcessor
         variables {
         	# language code use de, fr, et etc.
