@@ -126,6 +126,3 @@
 	- [FEATURE] Cover image crop ratio and automatic selection by video ratio
 	- [FEATURE] Cover image user rights
 	- [TASK] Remove jQuery setting breakpoint class for video container leaving vanilla only
-	- BREAKING CHANGES
-		- SQL to migrate yourself:
-			- UPDATE tt_content SET tx_youtubevideo_coverimage = image WHERE tt_content.cType = 'youtubevideo_pi1';
