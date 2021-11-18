@@ -117,6 +117,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 			'config' => [
 				'type' => 'check',
 				'renderType' => 'checkboxToggle',
+				'default' => 1,
 				'behaviour' => [
 					'allowLanguageSynchronization' => true,
 				],
@@ -124,7 +125,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 					[
 						0 => '',
 						1 => '',
-						'invertStateDisplay' => true,
+						'invertStateDisplay' => false,
 					]
 				],
 			]
