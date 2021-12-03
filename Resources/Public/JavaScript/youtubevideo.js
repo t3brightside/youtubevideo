@@ -1,96 +1,131 @@
-function getFrameID(id) {
-  var elem = document.getElementById(id);
-  if (elem) {
-      if (/^iframe$/i.test(elem.tagName)) return id; //Frame, OK
-      // else: Look for frame
-      var elems = elem.getElementsByTagName("iframe");
-      if (!elems.length) return null; //No iframe found, FAILURE
-      for (var i = 0; i < elems.length; i++) {
-          if (/^https?:\/\/(?:www\.)?youtube(?:-nocookie)?\.com(\/|$)/i.test(elems[i].src)) break;
-      }
-      elem = elems[i]; //The only, or the best iFrame
-      if (elem.id) return elem.id; //Existing ID, return it
-      // else: Create a new ID
-      do { //Keep postfixing `-frame` until the ID is unique
-          id += "-frame";
-      } while (document.getElementById(id));
-      elem.id = id;
-      return id;
-  }
-  // If no element, return null.
-  return null;
+// THIS FILE IS NO USED DIRECTLY
+// Minified and copied into Private/Resources/Templates/Youtubevideo.html
+
+
+youTubeApiIsLoaded = 0;
+gdprAgreedOnce = 0;
+
+// Read cookies
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+  else return null;
 }
 
-// Define YT_ready function.
-var YT_ready = (function() {
-  var onReady_funcs = [],
-      api_isReady = false;
-	/* @param func function     Function to execute on ready
-       * @param func Boolean      If true, all qeued functions are executed
-       * @param b_before Boolean  If true, the func will added to the first
-                                   position in the queue*/
-  return function(func, b_before) {
-      if (func === true) {
-          api_isReady = true;
-          for (var i = 0; i < onReady_funcs.length; i++) {
-              // Removes the first func from the array, and execute func
-              onReady_funcs.shift()();
-          }
-      }
-      else if (typeof func == "function") {
-          if (api_isReady) func();
-          else onReady_funcs[b_before ? "unshift" : "push"](func);
-      }
-  }
-})();
-// This function will be called when the API is fully loaded
-
-function onYouTubePlayerAPIReady() {
-  YT_ready(true)
+// Cancel without playing the video
+function gdprCancel() {
+  var el = (event.target || event.srcElement);
+  dataYtUid = 0;
+  dataYtUid = el.getAttribute('data-yt-uid');
+  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+}
+// Agree and remember by setting cookie
+function gdprAgree() {
+  document.cookie = "youtubevideo-consent=1; path=/;";
+  var el = (event.target || event.srcElement);
+  dataYtUid = 0;
+  dataYtUid = el.getAttribute('data-yt-uid');
+  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+  document.getElementById('coverimage-' + dataYtUid).click();
 }
 
-var players = {};
-//Define a player storage object, to enable later function calls,
-//  without having to create a new class instance again.
-YT_ready(function() {
-    jQuery(".coverimage + iframe[id]").each(function() {
-        var identifier = this.id;
-        var frameID = getFrameID(identifier);
-        if (frameID) { //If the frame exists
-          players[frameID] = new YT.Player(frameID, {
-            events: {
-              "onReady": createYTEvent(frameID, identifier)
-            }
-          });
-        }
-    });
-});
-
-
-// Returns a function to enable multiple events
-function createYTEvent(frameID, identifier) {
-    return function (event) {
-        var player = players[frameID]; // player object
-        var the_div = jQuery('#'+identifier).parent();
-        the_div.children('.coverimage').click(function() {
-            var $this = jQuery(this);
-            $this.fadeOut().next().addClass('play');
-            if ($this.next().hasClass('play')) {
-                player.playVideo();
-            }
-            setTimeout(doSomething, 700);
-            function doSomething() {
-	        	jQuery('#'+frameID).show();
-	        };
-        });
+// Agree once but ask again next time
+function gdprAgreeOnce() {
+  var el = (event.target || event.srcElement);
+  dataYtUid = 0;
+  dataYtUid = el.getAttribute('data-yt-uid');
+  gdprAgreedOnce = dataYtUid;
+  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+  document.getElementById('coverimage-' + dataYtUid).click();
+}
+// What happens on clicking the cover image
+function coverimageClick(event) {
+  if (!event) {
+    event = window.event;
+  };
+  var el = (event.target || event.srcElement);
+    playerId = 0;
+    playerId = el.getAttribute('data-yt-id');
+    dataYtCode = 0;
+    dataYtCode = el.getAttribute('data-yt-code');
+    dataYtVars = 0;
+    dataYtVars = JSON.parse('{' + el.getAttribute('data-yt-vars').replace(/,\s*$/, "") + '}');
+    dataYtHost = 0;
+    dataYtHost = el.getAttribute('data-yt-host');
+    dataYtUid = 0;
+    dataYtUid = el.getAttribute('data-yt-uid');
+    if (getCookie('youtubevideo-consent') || (gdprAgreedOnce == dataYtUid)) {
+      if (youTubeApiIsLoaded) {
+        loadPlayer();
+      } else {
+        loadYouTubeApi();
+      }
+      el.classList.add('play');
+    } else {
+      document.getElementById('gdpr-' + dataYtUid).style.display = 'block';
     }
 }
 
+// Load YouTube API
+function loadYouTubeApi() {
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  youTubeApiIsLoaded = 1;
+}
 
-// Load YouTube Frame API
-(function(){ //Closure, to not leak to the scope
-  var s = document.createElement("script");
-  s.src = "https://www.youtube.com/player_api"; /* Load Player API*/
-  var before = document.getElementsByTagName("script")[0];
-  before.parentNode.insertBefore(s, before);
-})();
+// Load YouTube player with video settings
+function loadPlayer() {
+  player = new YT.Player(playerId, {
+    height: '390',
+    width: '640',
+    videoId: dataYtCode,
+    host: dataYtHost,
+    playerVars: dataYtVars,
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+function onYouTubeIframeAPIReady() {
+  loadPlayer();
+}
+
+function onPlayerReady(event) {
+  player.setPlaybackRate(1);
+  player.playVideo();
+}
+
+function onPlayerStateChange(event) {}
+
+function stopVideo() {
+  player.stopVideo();
+}
+
+// Set video window breakpoint classes for 'small' and 'tiny'
+function youtubevideoDetectWidth(a) {
+  var container = document.getElementsByClassName(a);
+  for (var i = 0; i < container.length; ++i) {
+    var item = container[i];
+    var width = container[i].clientWidth;
+    if (width < containerBreakpointSmall) {
+      item.classList.add('small');
+    } else {
+      item.classList.remove('small');
+    }
+    if (width < containerBreakpointTiny) {
+      item.classList.add('tiny');
+    } else {
+      item.classList.remove('tiny');
+    }
+  }
+}
+
+youtubevideoDetectWidth('youtubevideo');
+window.addEventListener("resize", function() {
+  youtubevideoDetectWidth('youtubevideo');
+});

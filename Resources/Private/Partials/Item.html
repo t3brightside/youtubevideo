@@ -1,0 +1,78 @@
+<div class="youtubevideo {f:if(condition: data.tx_youtubevideo_colcount, then: 'item')}" style="{f:if(condition: data.tx_youtubevideo_colcount, then: 'width: {itemWidth}%')}">
+    <div class="videoWrapper v{data.uid} <f:if condition="{item.coverimages.0}">coverimaged autoplay{item.video.autoplay}</f:if>"
+         style="padding-bottom:<f:if condition="{item.settings.ratio} == 0">{ratioDefault}%</f:if><f:if condition="{item.settings.ratio} == 1">{ratio1}%</f:if>;
+    ">
+        <div id="player-{item.video.uid}"></div>
+        <a
+            id="coverimage-{item.video.uid}"
+            class="coverimage-click"
+        	data-yt-code="{item.video.contents}"
+            data-yt-host="{f:if(condition: nocookiehost, then: 'https://www.youtube-nocookie.com', else: 'https://www.youtube.com')}"
+            data-yt-id="player-{item.video.uid}"
+            data-yt-uid="{item.video.uid}"
+        	data-yt-vars="
+        		&quot;playsinline&quot;: 1,
+        		{f:if(condition: item.settings.fullscreen, then: '&quot;fs&quot;: 1,', else:'&quot;fs&quot;: 0,')}
+        		{f:if(condition: item.settings.loop, then: '&quot;loop&quot;: 1,')}
+        		{f:if(condition: item.settings.loop, then: '&quot;playlist&quot;: &quot;{item.video.contents}&quot;,')}
+        		{f:if(condition: item.settings.start, then: '&quot;start&quot;: {item.settings.start},')}
+        		{f:if(condition: item.settings.end, then: '&quot;end&quot;: {item.settings.end},')}
+        		{f:if(condition: item.settings.rel, then: '&quot;rel&quot;: 1,', else: '&quot;rel&quot;: 0,')}
+        		{f:if(condition: item.settings.mute, then: '&quot;mute&quot;: 1,', else: '&quot;mute&quot;: 0,')}
+        		{f:if(condition: hl, then: '&quot;hl&quot;: &quot;{hl}&quot;,')}
+        		{f:if(condition: modestbranding, then: '&quot;modestbranding&quot;: {modestbranding},')}
+        	"
+        	onclick="coverimageClick();
+        "></a>
+        <div
+        	class="coverimage"
+        	style="background:url(
+        		<f:if condition="{item.coverimages.0}">
+        			<f:then>
+        				<f:uri.image
+        					src="{item.coverimages.0.uid}"
+        					treatIdAsReference="1"
+        					width="{coverImageWidth_x2}"
+        					cropVariant="{f:if(condition: item.settings.ratio, then: 'tv', else: 'widescreen')}"
+        				/>
+        			</f:then>
+        			<f:else>
+                        <f:uri.image src="{item.original.preview}" width="{coverImageWidth_x2}" />
+                    </f:else>
+        		</f:if>
+        	) center center no-repeat; background-size: cover;">
+        	<f:if condition="{item.video.title} || {item.video.description}">
+        		<div class="covertext">
+        			<f:if condition="{item.video.title} && !{data.tx_youtubevideo_titles}"><h2>{item.video.title}</h2><br /></f:if>
+        			<f:if condition="{item.video.description} && {data.tx_youtubevideo_descriptions}"><p>{item.video.description}</p></f:if>
+        		</div>
+        	</f:if>
+        	<f:render section="playbutton" />
+        </div>
+    </div>
+    <f:if condition="{gdproverlay}"><f:render section="GdprOverlay" arguments="{_all}" /></f:if>
+</div>
+
+<f:section name="playbutton">
+    <svg class="playbutton" height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="rgba(0,0,0,0.75)"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</f:section>
+
+<f:section name="GdprOverlay">
+    <div class="youtubevideo-gdpr-overlay " id="gdpr-{item.video.uid}">
+        <div class="youtubevideo-gdpr-text">
+            <div class="youtubevideo-gdpr-note">
+                <f:if condition="{gdprtextoverride}">
+                    <f:then>
+                        {gdprtextoverride}
+                    </f:then>
+                    <f:else>
+                        <f:translate key="gdpr-text" extensionName="youtubevideo" />
+                    </f:else>
+                </f:if>
+            </div>
+            <a class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprAgreeOnce();"><f:translate key="gdpr-consent" extensionName="youtubevideo" /></a>
+            <a class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprAgree();"><f:translate key="gdpr-consentall" extensionName="youtubevideo" /></a><br />
+            <a class="youtubevideo-gdpr-cancel" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprCancel();"><f:translate key="gdpr-cancel" extensionName="youtubevideo" /></a>
+        </div>
+    </div>
+</f:section>

@@ -52,23 +52,29 @@
 			<trans-unit id="tx_youtubevideo_rel.description">
 			  <source>Shows related videos from YouTube at the end of the video.</source>
 			</trans-unit>
-			<trans-unit id="tx_youtubevideo_startminute.title">
-			  <source>Start Minute</source>
+			<trans-unit id="tx_youtubevideo_starttime.title">
+			  <source>Start Time (hh:mm:ss)</source>
 			</trans-unit>
-			<trans-unit id="tx_youtubevideo_startminute.description">
+			<trans-unit id="tx_youtubevideo_starttime.description">
 			  <source>Starts video at this minute.</source>
 			</trans-unit>
-			<trans-unit id="tx_youtubevideo_startsecond.title">
-			  <source>Start Second</source>
+			<trans-unit id="tx_youtubevideo_endtime.title">
+			  <source>End Time (hh:mm:ss)</source>
 			</trans-unit>
-			<trans-unit id="tx_youtubevideo_startsecond.description">
-			  <source>Starts video at this second.</source>
+			<trans-unit id="tx_youtubevideo_endtime.description">
+			  <source>Starts video at this minute.</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo_fullscreen.title">
 			  <source>Fullscreen</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo_fullscreen.description">
 			  <source>Disables and enables fullscreen option.</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_mute.title">
+			  <source>Mute</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo_mute.description">
+			  <source>Video starts playing with the sound turned off.</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo_loop.title">
 			  <source>Loop</source>
@@ -95,7 +101,7 @@
 			  <source>Text shown over cover image under the title.</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo_cover.image">
-			  <source>Cover Image</source>
+			  <source>Custom Cover</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -1,18 +1,24 @@
-# cat=Youtubevideo/1; type=int+; label= Max width of the custom cover image in px
+# cat=Youtubevideo/1; type=int+; label= Max width of the cover image in px
 youtubevideo.coverimagewidth = 1280
-# cat=Youtubevideo/1; type=boolean[1]; label= Enable custom play button even without cover text (Note! In some browsers user needs to click twice to play the video)
-youtubevideo.enablecovertoall = 0
-# cat=Youtubevideo/1; type=boolean[1]; label= Disable Youtube logo in video control bar
+# cat=Youtubevideo/1; type=boolean[1]; label= Disable Youtube logo in video
 youtubevideo.modestbranding = 0
-# cat=Youtubevideo/1; type=boolean[1]; label=Activate breakpoint for small videos
-youtubevideo.enableBreakpoint = 1
-# cat=Youtubevideo/1; type=int+; label= If video is smaller this width and breakpoint is activated the play button will be placed in upper right corner
-youtubevideo.breakpoint = 600
+# cat=Youtubevideo/1; type=boolean[1]; label= Disable 'share' and 'watch later' links by using youtube-nocookie.com
+youtubevideo.nocookiehost = 0
+# cat=Youtubevideo/1; type=int+; label= Add class 'small' to the video container if outer container is narrower than this
+youtubevideo.breakpointSmall = 600
+# cat=Youtubevideo/1; type=int+; label= Add class 'tiny' to the video container if outer container is narrower than this
+youtubevideo.breakpointTiny = 340
+# cat=Youtubevideo/1; type=boolean[1]; label= Enable GDPR notification overlay after clicking 'play'
+youtubevideo.gdprnote = 1
+# cat=Youtubevideo/1; type=string; label= Override GDPR notification text
+youtubevideo.gdprtextoverride =
+# cat=Youtubevideo/youtubevideo; type=int+; label= Padding between images in % of outside container
+youtubevideo.colspacewidth = 1.5
+# cat=Youtubevideo/youtubevideo; type=boolean[1]; label= Iframe instead of API on demand, not GDPR friendly
+youtubevideo.iframe = 0
 # cat=Youtubevideo/1; type=string; label= Template root paths
 youtubevideo.templateRootPaths = EXT:youtubevideo/Resources/Private/Templates/
 # cat=Youtubevideo/1; type=string; label= Template root paths
 youtubevideo.partialRootPaths = EXT:youtubevideo/Resources/Private/Partials/
 # cat=Youtubevideo/1; type=string; label= CSS file path
 youtubevideo.cssPath = EXT:youtubevideo/Resources/Public/Styles/youtubevideo.css
-# cat=Youtubevideo/1; type=string; label= JavaScript file path
-youtubevideo.javascriptPath = EXT:youtubevideo/Resources/Public/JavaScript/youtubevideo.js

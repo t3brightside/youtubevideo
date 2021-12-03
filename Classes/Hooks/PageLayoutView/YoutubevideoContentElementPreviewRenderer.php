@@ -3,10 +3,13 @@ namespace Brightside\Youtubevideo\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
-	
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
+
+
 class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterface {
 	 /**
-     * Preprocesses the preview rendering of a content element of type "textmedia"
+     * Preprocesses the preview rendering of a content element of type "youtubemedia_pi1"
      *
      * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
      * @param bool $drawItem Whether to draw the item using the default functionality
@@ -17,69 +20,76 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
      * @return void
      */
 
-	 public function preProcess(PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) {
-
+	 public function preProcess(
+         PageLayoutView &$parentObject,
+         &$drawItem,
+         &$headerContent,
+         &$itemContent,
+         array &$row
+     ) {
 		if ($row['CType'] === 'youtubevideo_pi1') {
-			$youtube_url = $parentObject->renderText($row['tx_youtubevideo_url']);
-			$pattern = '~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i';
-			$youtube_id = (preg_replace($pattern, '$1', $youtube_url));
-
-
-			$itemContent .= '<div class="youtubevideo">';
-			$itemContent .= '<iframe class="youtubeIframe" src="https://www.youtube.com/embed/';
-			$itemContent .= $youtube_id;
-			$itemContent .= '?showinfo=0&amp;rel=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			<div class="breaker"></div>';
-			if ($row['tx_youtubevideo_caption']) {
-            	$itemContent .= '<p class="title"><b>' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_caption']), $row) . '</b></p>';
-			}
-			if ($row['tx_youtubevideo_covertitle']) {
-            	$itemContent .= '<p class="covertitle"><b>' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_covertitle']), $row) . '</b></p>';
-			}
-			if ($row['tx_youtubevideo_covertext']) {
-            	$itemContent .= '<p class="covertext">' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_covertext']), $row) . '</p>';
-			}
-			if (!$row['tx_youtubevideo_caption'] or !$row['tx_youtubevideo_covertitle'] or !$row['tx_youtubevideo_covertext']) {
-				$itemContent .= '<br />';
-			}
-			if (($row['tx_youtubevideo_autoplay'] > 0) or ($row['tx_youtubevideo_showinfo'] > 0) or ($row['tx_youtubevideo_rel'] > 0) or ($row['tx_youtubevideo_fullscreen'] > 0) or ($row['tx_youtubevideo_loop'] > 0)) {
-				$itemContent .= '<ul class="options">';
-			}
-			if ($row['tx_youtubevideo_autoplay'] > 0){
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText($row[''].'autoplay'), $row).'</li>';
-			}
-			if ($row['tx_youtubevideo_showinfo'] > 0){
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText($row[''].'info'), $row).'</li>';
-			}
-			if ($row['tx_youtubevideo_rel'] > 0){
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText($row[''].'related'), $row).'</li>';
-			}
-			if ($row['tx_youtubevideo_fullscreen'] > 0){
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText($row[''].'fullscreen'), $row).'</li>';
-			}
-			if ($row['tx_youtubevideo_loop'] > 0){
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText($row[''].'loop'), $row).'</li>';
-			}
-			if (($row['tx_youtubevideo_autoplay'] > 0) or ($row['tx_youtubevideo_showinfo'] > 0) or ($row['tx_youtubevideo_rel'] > 0) or ($row['tx_youtubevideo_fullscreen'] > 0) or ($row['tx_youtubevideo_loop'] > 0)) {
-				$itemContent .= '</ul>';
-			}
-
-			if (($row['tx_youtubevideo_startminute']) or ($row['tx_youtubevideo_startsecond'])) {
-				$itemContent .= '<span class="start">Start at: ';
-			}
-			if ($row['tx_youtubevideo_startminute']) {
-            	$itemContent .= $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_startminute'].' min</i>&nbsp;'), $row);
-			}
-			if ($row['tx_youtubevideo_startsecond']) {
-            	$itemContent .= $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_startsecond'].' sec'), $row);
-			}
-			if (($row['tx_youtubevideo_startminute']) or ($row['tx_youtubevideo_startsecond'])) {
-				$itemContent .= '</span>';
+			$videoRelations = $parentObject->renderText($row['uid']);
+			$youtubeObjects = \TYPO3\CMS\Backend\Utility\BackendUtility::resolveFileReferences('tt_content', 'tx_youtubevideo_assets', $row);
+			$itemContent .= '<div class="youtubevideo-container">';
+			foreach ($youtubeObjects as $video) {
+				$original = $video->getOriginalFile();
+				$code = $video->getContents();
+				if (!$video->getProperty('hidden')){
+					$itemContent .= '<div class="youtubevideo-item"><div class="youtubevideo-wrapper"><iframe src="https://www.youtube.com/embed/';
+					$itemContent .= $code;
+					$itemContent .= '?showinfo=0&amp;rel=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
+					if ($video->getProperty('title')){
+						$itemContent .= '<b class="title">' . $parentObject->linkEditContent($parentObject->renderText($video->getProperty('title')), $row) . '</b>';
+					}
+					$itemContent .= '<ul>';
+					if ($video->getProperty('tx_youtubevideo_mute')){
+						$itemContent .= '<li>Mute: on</li>';
+					}
+					if ($video->getProperty('tx_youtubevideo_loop')){
+						$itemContent .= '<li>Loop: on</li>';
+					}
+					if (!$video->getProperty('tx_youtubevideo_fullscreen')){
+						$itemContent .= '<li>Fullscreen: off</li>';
+					}
+					if ($video->getProperty('tx_youtubevideo_rel')){
+						$itemContent .= '<li>Related: on</li>';
+					}
+					if ($video->getProperty('tx_youtubevideo_starttime')){
+						$itemContent .= '<li>Start: ' . $video->getProperty('tx_youtubevideo_starttime') . '</li>';
+					}
+					if ($video->getProperty('tx_youtubevideo_endtime')){
+						$itemContent .= '<li>End: ' . $video->getProperty('tx_youtubevideo_endtime') . '</li>';
+					}
+					$itemContent .= '</ul></div>';
+				}
 			}
 			$itemContent .= '</div>';
+			if (
+				$row['tx_youtubevideo_colcount'] ||
+				$row['tx_paginatedprocessors_paginationenabled'] ||
+				$row['tx_paginatedprocessors_itemsperpage'] ||
+				$row['tx_paginatedprocessors_pagelinksshown'] ||
+				$row['tx_paginatedprocessors_pagelinksshown']
+			) {
+				$itemContent .= '<div class="settings">';
+				if ($row['tx_youtubevideo_colcount']) {
+					$itemContent .= '<b>Layout:</b> columns:' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_colcount']), $row) . '';
+				}
+				if ($row['tx_paginatedprocessors_paginationenabled']) {
+					$itemContent .= '<br /><b> Pagination:</b> active ';
+					if ($row['tx_paginatedprocessors_itemsperpage']) {
+						$itemContent .= ' &bull; items per page: ' . $row['tx_paginatedprocessors_itemsperpage'];
+					}
+					if ($row['tx_paginatedprocessors_pagelinksshown']) {
+						$itemContent .= ' &bull; links shown: ' . $row['tx_paginatedprocessors_pagelinksshown'];
+					}
+					if ($row['tx_paginatedprocessors_pagelinksshown']) {
+						$itemContent .= ' &bull; url segment: ' . $row['tx_paginatedprocessors_urlsegment'];
+					}
+				}
+                $itemContent .= '</div>';
+			}
 			$drawItem = FALSE;
-
 		}
 	}
 }
-

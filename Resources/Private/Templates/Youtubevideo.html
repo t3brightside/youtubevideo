@@ -8,29 +8,32 @@
 	</f:section>
 	<f:layout name="Default" />
 	<f:section name="Main">
-		<div class="youtubeVideo">
-			<figure>
-				<div class="videoWrapper v{data.uid} <f:if condition="{files.0}">coverimaged autoplay{data.tx_youtubevideo_autoplay}</f:if>" style="
-					padding-bottom:
-						<f:if condition="{data.tx_youtubevideo_ratio} == 0">{ratioDefault}%</f:if>
-						<f:if condition="{data.tx_youtubevideo_ratio} == 1">{ratio1}%</f:if>;
-					">
-					<f:if condition="{data.tx_youtubevideo_autoplay}">
-						<f:then></f:then>
-						<f:else>
-							<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall}">
-								<f:render partial="Coverimage" arguments="{_all}" />
-							</f:if>
-						</f:else>
-					</f:if>
-					<iframe
-						id="frame{data.uid}"
-						src="https://www.youtube-nocookie.com/embed/{code}?modestbranding={modestbranding}&amp;hl={hl}&amp;autoplay={data.tx_youtubevideo_autoplay}&mute=<f:if condition="{files.0} || {data.tx_youtubevideo_covertitle} || {data.tx_youtubevideo_covertext} || {enablecovertoall}"><f:then>1</f:then><f:else>{data.tx_youtubevideo_autoplay}</f:else></f:if>&amp;rel={data.tx_youtubevideo_rel}&amp;html5=1&amp;enablejsapi=1<f:if condition="{data.tx_youtubevideo_fullscreen}">&amp;fs=0</f:if><f:if condition="{data.tx_youtubevideo_loop}">&amp;loop=1&amp;playlist={code}</f:if><f:if condition="{start}">&amp;start={start}</f:if>"
-						allowfullscreen>
-					</iframe>
-				</div>
-				<f:if condition="{data.tx_youtubevideo_caption}"><figcaption><p class="figureCaption">{data.tx_youtubevideo_caption}</p></figcaption></f:if>
-			</figure>
-		</div>
+		<f:variable name="spaceWidthTotal">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth}</f:variable>
+		<f:variable name="itemWidth">{100 - spaceWidthTotal / data.tx_youtubevideo_colcount}</f:variable>
+		<f:variable name="spaceInPx">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
+		<f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / data.tx_youtubevideo_colcount}</f:variable>
+		<f:variable name="coverImageWidth_x2">{coverImageWidth * 2}</f:variable>
+
+		<f:if condition="{youtubevideos -> f:count()} > 1">
+			<div id="youtubevideogallery-{data.uid}" class="youtubevideogallery colcount-{data.tx_youtubevideo_colcount}">
+		</f:if>
+            <f:for each="{youtubevideos}" as="item" iteration="iterator">
+                <f:render partial="Item" arguments="{_all}" />
+                <f:if condition="{iterator.isLast} != 1"><div class="space" style="width: {settings.colspacewidth}%; padding-bottom: {settings.colspacewidth}%;"></div></f:if>
+            </f:for>
+		<f:if condition="{youtubevideos -> f:count()} > 1">
+			</div>
+		</f:if>
+		<f:if condition="{pagination.numberOfPages} > 1">
+			<f:render partial="Pagination" arguments="{pagination:pagination}" />
+		</f:if>
+	</f:section>
+	<f:section name="FooterAssets">
+        <script>
+            function getCookie(t){var e=("; "+document.cookie).split("; "+t+"=");return 2==e.length?e.pop().split(";").shift():null}function gdprCancel(){var t=event.target||event.srcElement;dataYtUid=0,dataYtUid=t.getAttribute("data-yt-uid"),document.getElementById("gdpr-"+dataYtUid).style.display="none"}function gdprAgree(){document.cookie="youtubevideo-consent=1; path=/;";var t=event.target||event.srcElement;dataYtUid=0,dataYtUid=t.getAttribute("data-yt-uid"),document.getElementById("gdpr-"+dataYtUid).style.display="none",document.getElementById("coverimage-"+dataYtUid).click()}function gdprAgreeOnce(){var t=event.target||event.srcElement;dataYtUid=0,dataYtUid=t.getAttribute("data-yt-uid"),gdprAgreedOnce=dataYtUid,document.getElementById("gdpr-"+dataYtUid).style.display="none",document.getElementById("coverimage-"+dataYtUid).click()}function coverimageClick(t){t||(t=window.event);var e=t.target||t.srcElement;playerId=0,playerId=e.getAttribute("data-yt-id"),dataYtCode=0,dataYtCode=e.getAttribute("data-yt-code"),dataYtVars=0,dataYtVars=JSON.parse("{"+e.getAttribute("data-yt-vars").replace(/,\s*$/,"")+"}"),dataYtHost=0,dataYtHost=e.getAttribute("data-yt-host"),dataYtUid=0,dataYtUid=e.getAttribute("data-yt-uid"),getCookie("youtubevideo-consent")||gdprAgreedOnce==dataYtUid?(youTubeApiIsLoaded?loadPlayer():loadYouTubeApi(),e.classList.add("play")):document.getElementById("gdpr-"+dataYtUid).style.display="block"}function loadYouTubeApi(){var t=document.createElement("script");t.src="https://www.youtube.com/iframe_api";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),youTubeApiIsLoaded=1}function loadPlayer(){player=new YT.Player(playerId,{height:"390",width:"640",videoId:dataYtCode,host:dataYtHost,playerVars:dataYtVars,events:{onReady:onPlayerReady,onStateChange:onPlayerStateChange}})}function onYouTubeIframeAPIReady(){loadPlayer()}function onPlayerReady(t){player.setPlaybackRate(1),player.playVideo()}function onPlayerStateChange(t){}function stopVideo(){player.stopVideo()}function youtubevideoDetectWidth(t){for(var e=document.getElementsByClassName(t),a=0;a<e.length;++a){var d=e[a],o=e[a].clientWidth;o<containerBreakpointSmall?d.classList.add("small"):d.classList.remove("small"),o<containerBreakpointTiny?d.classList.add("tiny"):d.classList.remove("tiny")}}youTubeApiIsLoaded=0,gdprAgreedOnce=0,youtubevideoDetectWidth("youtubevideo"),window.addEventListener("resize",function(){youtubevideoDetectWidth("youtubevideo")});
+        </script>
+        <f:comment>
+            <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/youtubevideo.min.js', extensionName: 'Youtubevideo')}"></script>
+        </f:comment>
 	</f:section>
 </html>

@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:section name="HeaderAssets">
+		<link rel="preconnect" href="https://www.youtube-nocookie.com">
+		<link rel="preconnect" href="https://www.youtube.com">
+		<link rel="preconnect" href="https://i.ytimg.com">
+		<link rel="preconnect" href="https://i9.ytimg.com">
+		<link rel="preconnect" href="https://s.ytimg.com">
+	</f:section>
+	<f:layout name="Default" />
+	<f:section name="Main">
+		<f:variable name="spaceWidthTotal">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth}</f:variable>
+		<f:variable name="itemWidth">{100 - spaceWidthTotal / data.tx_youtubevideo_colcount}</f:variable>
+		<f:variable name="spaceInPx">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
+		<f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / data.tx_youtubevideo_colcount}</f:variable>
+		<f:variable name="coverImageWidth_x2">{coverImageWidth * 2}</f:variable>
+
+		<f:if condition="{youtubevideos -> f:count()} > 1">
+			<div id="youtubevideogallery-{data.uid}" class="youtubevideogallery colcount-{data.tx_youtubevideo_colcount}">
+		</f:if>
+            <f:for each="{youtubevideos}" as="item" iteration="iterator">
+                <f:render partial="Iframe" arguments="{_all}" />
+                <f:if condition="{iterator.isLast} != 1"><div class="space" style="width: {settings.colspacewidth}%; padding-bottom: {settings.colspacewidth}%;"></div></f:if>
+            </f:for>
+		<f:if condition="{youtubevideos -> f:count()} > 1">
+			</div>
+		</f:if>
+		<f:if condition="{pagination.numberOfPages} > 1">
+			<f:render partial="Pagination" arguments="{pagination:pagination}" />
+		</f:if>
+	</f:section>
+</html>

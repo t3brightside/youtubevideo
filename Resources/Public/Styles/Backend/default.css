@@ -1,0 +1,46 @@
+.youtubevideo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 8px;
+}
+
+.youtubevideo-item {
+    width: auto;
+}
+
+.youtubevideo-item b.title {
+    display: inline-block;
+    padding-top: 0.5em;
+    line-height: 1.2em;
+}
+
+.youtubevideo-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.youtubevideo-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.youtubevideo-item ul {
+    padding: 0.3em 0 0 1.5em;
+    margin: 0;
+    line-height: 1.3em;
+    color: #666
+}
+
+.youtubevideo-item ul li {
+    margin: 0;
+}
+
+.settings {
+    clear: both;
+    width: 100%;
+    padding-top: 1em;
+    margin-bottom: 0;
+}

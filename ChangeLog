@@ -122,11 +122,13 @@
 	– README to md format
 	– Move ext icons to Resources/Public
 * 2.0.0
-	- TYPO3 11.5 support only
-	- [FEATURE] Cover image crop ratio and automatic selection by video ratio
-	- [FEATURE] Cover image user rights
-	- [TASK] Remove jQuery setting breakpoint class for video container leaving vanilla only
-	- [FEATURE] Add cover image migration upgrade wizard to migrate images from tt_content.image to tt_content.tx_youtubevideo_coverimage
-	- Upgrade instructions:
-		- Back up your database
-		- Run Upgrade Wizard, it detects if there's any image fields to migrate
+	- !!! BREAKING !!! 90% REWRITE NOT COMPATIBLE WITH PREVIOUS VERSIONS
+    - Use TYPO3 YouTube video files
+    - Video options saved into sys_file_reference
+    - Multiple videos per content element
+    - Gallery layout
+    - Pagination if paginatedprocessors installed
+    - Load YouTube API on play
+    - Javascript loaded only if Youtubecontent is present on the page
+    - GDPR friendly and ask for consent before playing
+    - Simple non GDPR friendly iframe template available, with no cover image option

@@ -1,0 +1,17 @@
+<div class="youtubevideo {f:if(condition: data.tx_youtubevideo_colcount, then: 'item')}" style="{f:if(condition: data.tx_youtubevideo_colcount, then: 'width: {itemWidth}%')}">
+    <div class="videoWrapper v{data.uid}" style="padding-bottom:<f:if condition="{item.settings.ratio} == 0">{ratioDefault}%</f:if><f:if condition="{item.settings.ratio} == 1">{ratio1}%</f:if>;">
+        <iframe
+            src="https://www.youtube.com/embed/
+{item.video.contents}
+{f:if(condition: item.settings.fullscreen, then: '?fs=1', else:'?fs=0')}
+{f:if(condition: item.settings.loop, then: '&loop=1')}
+{f:if(condition: item.settings.loop, then: '&playlist={item.video.contents}')}
+{f:if(condition: item.settings.start, then: '&start={item.settings.start}')}
+{f:if(condition: item.settings.end, then: '&end={item.settings.end}')}
+{f:if(condition: item.settings.rel, then: '&rel=1', else: '&rel=0')}
+{f:if(condition: item.settings.mute, then: '&mute=1', else: '&mute=0')}
+{f:if(condition: hl, then: '&hl={hl}')}
+{f:if(condition: modestbranding, then: '&modestbranding={modestbranding}')}">
+        </iframe>
+    </div>
+</div>

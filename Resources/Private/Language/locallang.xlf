@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-02-23T18:12:17Z"
+		  product-name="content_slug">
+		<header/>
+		<body>
+			<trans-unit id="gdpr-text">
+				<source>On 'Play' external media is loaded and YouTube sends you some cookies!</source>
+			</trans-unit>
+			<trans-unit id="gdpr-consent">
+				<source>Accept &amp; Play</source>
+			</trans-unit>
+			<trans-unit id="gdpr-consentall">
+				<source>Accept for All Videos &amp; Play</source>
+			</trans-unit>
+			<trans-unit id="gdpr-cancel">
+				<source>Cancel</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
