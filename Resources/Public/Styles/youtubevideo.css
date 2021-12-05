@@ -204,3 +204,26 @@
     float: none;
     clear: both;
 }
+
+@media (prefers-color-scheme: dark) {
+    .youtubevideo-gdpr-overlay {
+        background: rgba(0, 0, 0, 0.93);
+        color: #fff;
+    }
+
+    .youtubevideo-gdpr-button {
+        color: #fff;
+        background: #000;
+        border-color: #fff;
+    }
+
+    .youtubevideo-gdpr-button:hover {
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .youtubevideo-gdpr-cancel {
+        color: #fff;
+    }
+}
