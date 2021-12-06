@@ -4,16 +4,16 @@
 		<header/>
 		<body>
 			<trans-unit id="gdpr-text">
-				<target state="translated">Video käivitamisel saadab YouTube teile küpsiseid!</target>
+				<target state="translated">Video käivitamisel laetakse väline meedia ja YouTube teile küpsiseid!</target>
 			</trans-unit>
 			<trans-unit id="gdpr-consent">
-				<target>Accept &amp; Play</target>
+				<target>Nõustu ja vaata</target>
 			</trans-unit>
 			<trans-unit id="gdpr-consentall">
-				<target>Accept for All Videos &amp; Play</target>
-			</trans-unit>ü
+				<target>Nõustu ka edaspidi ja vaata</target>
+			</trans-unit>
 			<trans-unit id="gdpr-cancel">
-				<target>Cancel</target>
+				<target>Loobu</target>
 			</trans-unit>
 		</body>
 	</file>
