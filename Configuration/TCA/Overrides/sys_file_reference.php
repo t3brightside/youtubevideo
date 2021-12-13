@@ -7,6 +7,7 @@ $youtubeVideoColumns = array(
     'config' => [
       'type' => 'check',
       'renderType' => 'checkboxToggle',
+      'default' => 1,
       'behaviour' => [
         'allowLanguageSynchronization' => true,
       ],
