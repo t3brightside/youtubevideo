@@ -14,7 +14,7 @@
   ],
   "require": {
       "typo3/cms-core": "^11.5",
-      "typo3/cms-fluid-styled-content": "*"
+      "typo3/cms-fluid-styled-content": "^11.5"
   },
   "autoload": {
     "psr-4": {
