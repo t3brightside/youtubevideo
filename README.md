@@ -19,9 +19,9 @@ Version 2.0.0 is not compatible with older versions of the extension. Right now 
 
 ## Features
 - Load Youtube API on play
-- GDPR notification & consent
+- GDPR notification & consent built in
 - No external media before clicking 'play'
-- Automatic cover image optimisation
+- Cover image optimisation
 - Regular iframe option that's not GDPR friendly
 - Gallery layout
 
@@ -33,7 +33,7 @@ Version 2.0.0 is not compatible with older versions of the extension. Right now 
 - related
 - start & end time
 - aspect ratio (widescreen & standard)
-- custom cover image, title and description
+- custom cover image
 
 ## Installation
 
@@ -41,6 +41,7 @@ Version 2.0.0 is not compatible with older versions of the extension. Right now 
 -  Include static template
 -  Alter the TypoScript constants if needed
 - Install [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors) for pagination
+- See the extension configuration to disable some BE features
 
 ## Usage
 
