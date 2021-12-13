@@ -132,3 +132,5 @@
     - Javascript loaded only if Youtubecontent is present on the page
     - GDPR friendly and ask for consent before playing
     - Simple non GDPR friendly iframe template available, with no cover image option
+    - Option to disable back end player in extension configuration
+    – Option to disable pagination in extension configuration
