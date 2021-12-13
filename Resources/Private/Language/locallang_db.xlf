@@ -11,7 +11,10 @@
 			  <source>YouTube Video</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo.settings">
-			  <source>Video Settings</source>
+			  <source>Settings</source>
+			</trans-unit>
+			<trans-unit id="tx_youtubevideo.layout">
+			  <source>Layout</source>
 			</trans-unit>
 			<trans-unit id="tx_youtubevideo.cover">
 			  <source>Video Cover</source>
