@@ -5,7 +5,7 @@ use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
-
+use TYPO3\CMS\Core\Core\Environment;
 
 class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterface {
 	 /**
@@ -27,6 +27,13 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
          &$itemContent,
          array &$row
      ) {
+
+         // Get extension configuration
+         $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+             \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+         );
+         $extensionConfiguration = $extensionConfiguration->get('youtubevideo');
+
 		if ($row['CType'] === 'youtubevideo_pi1') {
 			$videoRelations = $parentObject->renderText($row['uid']);
 			$youtubeObjects = \TYPO3\CMS\Backend\Utility\BackendUtility::resolveFileReferences('tt_content', 'tx_youtubevideo_assets', $row);
@@ -34,11 +41,18 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
 			foreach ($youtubeObjects as $video) {
 				$original = $video->getOriginalFile();
 				$code = $video->getContents();
+                $onlineMediaHelper = OnlineMediaHelperRegistry::getInstance()->getOnlineMediaHelper($original);
+                $previewUrl = str_replace(Environment::getPublicPath(), '', $onlineMediaHelper->getPreviewImage($original));
 				if (!$video->getProperty('hidden')){
-					$itemContent .= '<div class="youtubevideo-item"><div class="youtubevideo-wrapper"><iframe src="https://www.youtube.com/embed/';
+					$itemContent .= '<div class="youtubevideo-item">';
+                if ($extensionConfiguration['youtubevideoEnableBePlayer']) {
+                    $itemContent .= '<div class="youtubevideo-wrapper"><iframe src="https://www.youtube.com/embed/';
 					$itemContent .= $code;
 					$itemContent .= '?showinfo=0&amp;rel=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
-					if ($video->getProperty('title')){
+                } else {
+                        $itemContent .= $parentObject->linkEditContent('<img src="' . $previewUrl . '" />', $row);
+                }
+                    if ($video->getProperty('title')){
 						$itemContent .= '<b class="title">' . $parentObject->linkEditContent($parentObject->renderText($video->getProperty('title')), $row) . '</b>';
 					}
 					$itemContent .= '<ul>';
