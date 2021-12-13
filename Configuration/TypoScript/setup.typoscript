@@ -24,8 +24,8 @@ tt_content {
       ifEmpty = Youtubevideo
     }
 
-    templateRootPaths.20 = {$youtubevideo.templateRootPaths}
-    partialRootPaths.20 = {$youtubevideo.partialRootPaths}
+    templateRootPaths.20909 = {$youtubevideo.templateRootPaths}
+    partialRootPaths.20909 = {$youtubevideo.partialRootPaths}
     dataProcessing {
       10 = Brightside\Youtubevideo\DataProcessing\YoutubevideoFilesProcessor
       10 {
