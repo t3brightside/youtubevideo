@@ -97,7 +97,7 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
 					if ($row['tx_paginatedprocessors_pagelinksshown']) {
 						$itemContent .= ' &bull; links shown: ' . $row['tx_paginatedprocessors_pagelinksshown'];
 					}
-					if ($row['tx_paginatedprocessors_pagelinksshown']) {
+					if ($row['tx_paginatedprocessors_urlsegment']) {
 						$itemContent .= ' &bull; url segment: ' . $row['tx_paginatedprocessors_urlsegment'];
 					}
 				}
