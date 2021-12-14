@@ -19,12 +19,6 @@
 			<trans-unit id="tx_youtubevideo.cover">
 			  <source>Video Cover</source>
 			</trans-unit>
-			<trans-unit id="tx_youtubevideo_url.title">
-			  <source>YouTube URL</source>
-			</trans-unit>
-			<trans-unit id="tx_youtubevideo_url.description">
-			  <source>Paste the YouTube video URL as it is.</source>
-			</trans-unit>
 			<trans-unit id="tx_youtubevideo_caption.title">
 			  <source>Description (Caption)</source>
 			</trans-unit>
