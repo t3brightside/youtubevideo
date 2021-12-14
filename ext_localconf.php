@@ -13,7 +13,4 @@ $iconRegistry->registerIcon(
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['youtubevideo_pi1']
     = \Brightside\Youtubevideo\Hooks\PageLayoutView\YoutubevideoContentElementPreviewRenderer::class;
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['youtubevideo_upgradeCoverimageField']
-    = \Brightside\Youtubevideo\Updates\UpgradeCoverimageField::class;
-
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals']['Brightside\\Youtubevideo\\Evaluation\\HoursMinutesSeconds'] = '';
