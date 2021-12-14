@@ -99,51 +99,33 @@
 }
 
 .youtubevideo>.videoWrapper>.coverimage>.covertext {
-    max-width: 75%;
     position: absolute;
-    bottom: 5%;
-    margin-left: -1px;
-    padding-right: 5%;
     text-align: left;
     box-sizing: border-box;
     font-size: 0.8em;
     line-height: 1.5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0.8rem 1.2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    bottom: 1.5rem;
 }
-
 .youtubevideo.small>.videoWrapper>.coverimage>.covertext {
-    max-width: 100%;
-    width: 100%;
-    font-size: 0.75em;
-    line-height: 1.4em;
+    margin-left: 0;
+    margin-right: 0;
     bottom: 0;
+    width: 100%;
+    padding: 0.8rem 1.1rem;
+}
+.youtubevideo>.videoWrapper>.coverimage>.covertext h2 {
+    margin: 0;
     padding: 0;
 }
 
-.youtubevideo.tiny>.videoWrapper>.coverimage>.covertext {}
-
-.youtubevideo>.videoWrapper>.coverimage>.covertext h2, .youtubevideo>.videoWrapper>.coverimage>.covertext p {
-    margin: 1px;
-    padding: 10px 16px;
+.youtubevideo>.videoWrapper>.coverimage>.covertext h2,
+.youtubevideo>.videoWrapper>.coverimage>.covertext p {
     display: inline-block;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
-}
-
-.youtubevideo.small>.videoWrapper>.coverimage>.covertext h2 {
-    margin: 0;
-    font-weight: normal;
-    padding: 0.2em 0.5em;
-    width: 100%;
-    font-size: 1rem;
-}
-
-.youtubevideo.tiny>.videoWrapper>.coverimage>.covertext h2 {
-    font-size: 0.85rem;
-}
-
-.youtubevideo.small>.videoWrapper>.coverimage>.covertext p, .youtubevideo.tiny>.videoWrapper>.coverimage>.covertext p {
-    display: none;
 }
 
 .youtubevideo>.videoWrapper>.coverimage-click {

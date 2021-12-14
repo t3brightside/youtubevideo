@@ -41,12 +41,12 @@
                     </f:else>
         		</f:if>
         	) center center no-repeat; background-size: cover;">
-        	<f:if condition="{item.video.title} || {item.video.description}">
-        		<div class="covertext">
-        			<f:if condition="{item.video.title} && !{data.tx_youtubevideo_titles}"><h2>{item.video.title}</h2><br /></f:if>
+            <f:if condition="{item.video.title} && !{data.tx_youtubevideo_titles} || {item.video.description} && {data.tx_youtubevideo_descriptions}">
+       		    <div class="covertext">
+        			<f:if condition="{item.video.title} && !{data.tx_youtubevideo_titles} "><h2>{item.video.title}</h2><br /></f:if>
         			<f:if condition="{item.video.description} && {data.tx_youtubevideo_descriptions}"><p>{item.video.description}</p></f:if>
         		</div>
-        	</f:if>
+            </f:if>
         	<f:render section="playbutton" />
         </div>
     </div>
