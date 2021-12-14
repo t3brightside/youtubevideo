@@ -57,22 +57,22 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
 					}
 					$itemContent .= '<ul>';
 					if ($video->getProperty('tx_youtubevideo_mute')){
-						$itemContent .= '<li>Mute: on</li>';
+						$itemContent .= '<li>' . $parentObject->linkEditContent('Mute: on', $row) . '</li>';
 					}
 					if ($video->getProperty('tx_youtubevideo_loop')){
-						$itemContent .= '<li>Loop: on</li>';
+						$itemContent .= '<li>' . $parentObject->linkEditContent('Loop: on', $row) . '</li>';
 					}
 					if (!$video->getProperty('tx_youtubevideo_fullscreen')){
-						$itemContent .= '<li>Fullscreen: off</li>';
+						$itemContent .= '<li>' . $parentObject->linkEditContent('Fullscreen: off', $row) . '</li>';
 					}
-					if ($video->getProperty('tx_youtubevideo_rel')){
-						$itemContent .= '<li>Related: on</li>';
+					if (!$video->getProperty('tx_youtubevideo_rel')){
+						$itemContent .= '<li>' . $parentObject->linkEditContent('Related: off', $row) . '</li>';
 					}
 					if ($video->getProperty('tx_youtubevideo_starttime')){
-						$itemContent .= '<li>Start: ' . $video->getProperty('tx_youtubevideo_starttime') . '</li>';
+						$itemContent .= '<li>' . $parentObject->linkEditContent('Start: ' . $video->getProperty('tx_youtubevideo_starttime') , $row) . '</li>';
 					}
 					if ($video->getProperty('tx_youtubevideo_endtime')){
-						$itemContent .= '<li>End: ' . $video->getProperty('tx_youtubevideo_endtime') . '</li>';
+                        $itemContent .= '<li>' . $parentObject->linkEditContent('End: ' . $video->getProperty('tx_youtubevideo_endtime') , $row) . '</li>';
 					}
 					$itemContent .= '</ul></div>';
 				}
@@ -87,7 +87,7 @@ class YoutubevideoContentElementPreviewRenderer implements PageLayoutViewDrawIte
 			) {
 				$itemContent .= '<div class="settings">';
 				if ($row['tx_youtubevideo_colcount']) {
-					$itemContent .= '<b>Layout:</b> columns:' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_colcount']), $row) . '';
+					$itemContent .= '<br /><b>Layout:</b> columns:' . $parentObject->linkEditContent($parentObject->renderText($row['tx_youtubevideo_colcount']), $row) . '';
 				}
 				if ($row['tx_paginatedprocessors_paginationenabled']) {
 					$itemContent .= '<br /><b> Pagination:</b> active ';
