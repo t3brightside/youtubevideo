@@ -127,7 +127,7 @@
     - Video options saved into sys_file_reference
     - Multiple videos per content element
     - Gallery layout
-    - Pagination if paginatedprocessors installed
+    - Pagination with t3brightside/paginatedprocessors
     - Load YouTube API on play
     - Javascript loaded only if Youtubecontent is present on the page
     - GDPR friendly and ask for consent before playing
