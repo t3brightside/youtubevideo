@@ -5,9 +5,9 @@ youtubevideo.modestbranding = 0
 # cat=Youtubevideo/1; type=boolean[1]; label= Disable 'share' and 'watch later' links by using youtube-nocookie.com
 youtubevideo.nocookiehost = 0
 # cat=Youtubevideo/1; type=int+; label= Add class 'small' to the video container if outer container is narrower than this
-youtubevideo.breakpointSmall = 600
+youtubevideo.breakpointSmall = 500
 # cat=Youtubevideo/1; type=int+; label= Add class 'tiny' to the video container if outer container is narrower than this
-youtubevideo.breakpointTiny = 340
+youtubevideo.breakpointTiny = 300
 # cat=Youtubevideo/1; type=boolean[1]; label= Enable GDPR notification overlay after clicking 'play'
 youtubevideo.gdprnote = 1
 # cat=Youtubevideo/1; type=string; label= Override GDPR notification text
