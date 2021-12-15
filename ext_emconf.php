@@ -2,10 +2,10 @@
 
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'YouTube Video',
-	'description' => 'YouTube video content with custom cover images, gallery layout and backend preview.',
+	'description' => 'YouTube video content with custom cover images, gallery layout and backend previews.',
 	'category' => 'fe',
-	'version' => '2.0.0-beta',
-	'state' => 'alpha',
+	'version' => '2.0.0',
+	'state' => 'stable',
 	'clearcacheonload' => true,
 	'author' => 'Tanel Põld',
 	'author_email' => 'tanel@brightside.ee',
