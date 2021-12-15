@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'YouTube Video',
-	'description' => 'Easy to use YouTube video content element with responsive template, cover image and backend preview.',
+	'description' => 'YouTube video content with custom cover images, gallery layout and backend preview.',
 	'category' => 'fe',
 	'version' => '2.0.0-beta',
 	'state' => 'alpha',
