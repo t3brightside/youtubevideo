@@ -204,7 +204,7 @@
 }
 
 /* column layouts */
-.youtubevideogallery.colcount-1 .space,
+.youtubevideogallery.colcount-0 .space,
 .youtubevideogallery.colcount-3 .space:nth-child(3n),
 .youtubevideogallery.colcount-2 .space:nth-child(4n),
 .youtubevideogallery.colcount-4 .space:nth-child(8n),
