@@ -43,12 +43,12 @@ Version 2.0.0 is not compatible with older versions of the extension. There is n
 - Concent cookie: youtubevideo-consent=1
 
 ## Installation
-
 - `composer req t3brightside/youtubevideo` or from TYPO3 extension repository [youtubevideo](https://extensions.typo3.org/extension/youtubevideo/)
 -  Include static template
 -  Alter the TypoScript constants if needed
 - Install [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors) for pagination
-- See the extension configuration to disable some BE features
+- Extension Configuration: Back end player (default: enabled)
+- Extension Configuration: Pagination features (default: disabled)
 
 ## Usage
 

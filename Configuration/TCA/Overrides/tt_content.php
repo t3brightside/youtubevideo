@@ -8,6 +8,12 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['youtubevideo_pi1'] = 
 	'tt_content', 'EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf'
 );
 
+// Get extension configuration
+$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+);
+$extensionConfiguration = $extensionConfiguration->get('youtubevideo');
+
 // Add to content type dropdown
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     "tt_content",
@@ -99,7 +105,6 @@ $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem'] = '
         --palette--;LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo.title;youtubevideoMain,
     --div--;LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo.settings;,
         --palette--;LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo.layout;youtubevideoLayout,
-    	--palette--;LLL:EXT:paginatedprocessors/Resources/Private/Language/locallang_tca.xlf:palettes.pagination;paginatedprocessors,
     --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
         --palette--;;frames,
         --palette--;;appearanceLinks,
@@ -114,6 +119,15 @@ $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem'] = '
         rowDescription,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
 ';
+
+if ($extensionConfiguration['youtubevideoEnablePagination']) {
+    $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem'] = str_replace(
+        ';youtubevideoLayout,',
+        ';youtubevideoLayout,
+		--palette--;LLL:EXT:paginatedprocessors/Resources/Private/Language/locallang_tca.xlf:palettes.pagination;paginatedprocessors,',
+        $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem']
+    );
+}
 
 $GLOBALS['TCA']['tt_content']['palettes']['youtubevideoMain']['showitem'] = 'tx_youtubevideo_assets';
 $GLOBALS['TCA']['tt_content']['palettes']['youtubevideoLayout']['showitem'] = '
