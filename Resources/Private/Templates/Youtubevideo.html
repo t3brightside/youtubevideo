@@ -8,14 +8,19 @@
 	</f:section>
 	<f:layout name="Default" />
 	<f:section name="Main">
-		<f:variable name="spaceWidthTotal">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth}</f:variable>
-		<f:variable name="itemWidth">{100 - spaceWidthTotal / data.tx_youtubevideo_colcount}</f:variable>
-		<f:variable name="spaceInPx">{data.tx_youtubevideo_colcount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
-		<f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / data.tx_youtubevideo_colcount}</f:variable>
+        <f:if condition="{youtubevideos -> f:count()} < {data.tx_youtubevideo_colcount}">
+            <f:then><f:variable name="colCount">{youtubevideos -> f:count()}</f:variable></f:then>
+            <f:else><f:variable name="colCount">{data.tx_youtubevideo_colcount}</f:variable></f:else>
+        </f:if>
+
+		<f:variable name="spaceWidthTotal">{colCount - 1 * settings.colspacewidth}</f:variable>
+		<f:variable name="itemWidth">{100 - spaceWidthTotal / colCount}</f:variable>
+		<f:variable name="spaceInPx">{colCount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
+		<f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / colCount}</f:variable>
 		<f:variable name="coverImageWidth_x2">{coverImageWidth * 2}</f:variable>
 
 		<f:if condition="{youtubevideos -> f:count()} > 1">
-			<div id="youtubevideogallery-{data.uid}" class="youtubevideogallery colcount-{data.tx_youtubevideo_colcount}">
+			<div id="youtubevideogallery-{data.uid}" class="youtubevideogallery colcount-{colCount}">
 		</f:if>
             <f:for each="{youtubevideos}" as="item" iteration="iterator">
                 <f:render partial="Item" arguments="{_all}" />
