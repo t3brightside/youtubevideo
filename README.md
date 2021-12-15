@@ -5,12 +5,12 @@
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
 
 
-**TYPO3 CMS extension for GDPR friendly YouTube videos with custom cover image and gallery view.**
+**TYPO3 CMS extension for YouTube video content with custom cover images, gallery layout and backend previews.**
 
 **[Demo](https://microtemplate.t3brightside.com)**
 
 ## !!! Important
-Version 2.0.0 is not compatible with older versions of the extension. Right now there is no upgrade functionality from lower versions.
+Version 2.0.0 is not compatible with older versions of the extension. There is no upgrade wizard – you're welcome to add one :)
 
 ## System requirements
 
@@ -19,13 +19,14 @@ Version 2.0.0 is not compatible with older versions of the extension. Right now 
 
 ## Features
 - Load Youtube API on play
-- GDPR notification & consent built in
-- No external media before clicking 'play'
 - Cover image optimisation
+- Gallery layout with column selection
+- Turn on/off titles and descriptions
 - Regular iframe option that's not GDPR friendly
-- Gallery layout
+- Pagination
+- Dark mode styling
 
-#### Video options available:
+### Video options available:
 - title
 - description
 - mute
@@ -34,6 +35,12 @@ Version 2.0.0 is not compatible with older versions of the extension. Right now 
 - start & end time
 - aspect ratio (widescreen & standard)
 - custom cover image
+
+### GDPR compliance
+- No external media or cookies loaded before clicking 'Accept & Play'
+- No intrusive GDPR notification before actually clicking on the video
+- Accept cookies to current or all videos on the domain
+- Concent cookie: youtubevideo-consent=1
 
 ## Installation
 
