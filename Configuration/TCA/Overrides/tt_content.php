@@ -32,18 +32,12 @@ $tempColumns = array(
 		'exclude' => 1,
 		'label' => 'Video',
 		'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('tx_youtubevideo_assets', [
+			'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
 			'appearance' => [
 				'createNewRelationLinkTitle' => 'Video',
 				'showPossibleLocalizationRecords' => true,
-				'enabledControls' => [
-					'info' => true,
-					'new' => false,
-					'dragdrop' => true,
-					'sort' => false,
-					'hide' => true,
-					'delete' => true,
-					'localize' => true,
-				],
 			],
 			'overrideChildTca' => [
 				'types' => [
@@ -63,6 +57,9 @@ $tempColumns = array(
 			'type'     => 'select',
 			'renderType' => 'selectSingle',
 			'items'    => array(),
+			'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
 		],
 	],
     'tx_youtubevideo_titles' => [
@@ -78,6 +75,9 @@ $tempColumns = array(
 					'invertStateDisplay' => true
 				]
 			],
+			'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
 		]
 	],
     'tx_youtubevideo_descriptions' => [
@@ -92,6 +92,9 @@ $tempColumns = array(
 					1 => '',
 				]
 			],
+			'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
 		]
 	],
 );
