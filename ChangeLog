@@ -134,3 +134,7 @@
     - Simple non GDPR friendly iframe template available, with no cover image option
     - Option to disable back end player in extension configuration
     – Option to disable pagination in extension configuration
+* 2.0.1
+    - Enable TYPO3 10.4 in composer mode
+    - Fix the option to disable GDPR note
+    - Set videoWrapper default height to 0 not to have unexpected height changes with third party GDPR extensions

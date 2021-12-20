@@ -5,7 +5,8 @@
 
 .youtubevideo>.videoWrapper {
     overflow: hidden;
-    position: relative
+    position: relative;
+    height: 0;
 }
 
 .youtubevideo>.videoWrapper>.coverimage {
