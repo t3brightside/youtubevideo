@@ -76,8 +76,8 @@ tt_content {
       containerBreakpointTiny = TEXT
       containerBreakpointTiny.value = {$youtubevideo.breakpointTiny}
 
-      gdproverlay = TEXT
-      gdproverlay.value = {$youtubevideo.gdproverlay}
+      gdprnote = TEXT
+      gdprnote.value = {$youtubevideo.gdprnote}
 
       gdprtextoverride = TEXT
       gdprtextoverride.value = {$youtubevideo.gdprtextoverride}

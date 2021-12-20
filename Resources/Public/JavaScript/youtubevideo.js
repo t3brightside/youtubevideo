@@ -1,7 +1,6 @@
 // THIS FILE IS NO USED DIRECTLY
 // Minified and copied into Private/Resources/Templates/Youtubevideo.html
 
-
 youTubeApiIsLoaded = 0;
 gdprAgreedOnce = 0;
 
@@ -55,7 +54,7 @@ function coverimageClick(event) {
     dataYtHost = el.getAttribute('data-yt-host');
     dataYtUid = 0;
     dataYtUid = el.getAttribute('data-yt-uid');
-    if (getCookie('youtubevideo-consent') || (gdprAgreedOnce == dataYtUid)) {
+    if (getCookie('youtubevideo-consent') || (gdprAgreedOnce == dataYtUid) || disableGdpr) {
       if (youTubeApiIsLoaded) {
         loadPlayer();
       } else {
