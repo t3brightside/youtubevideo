@@ -138,3 +138,6 @@
     - Enable TYPO3 10.4 in composer mode
     - Fix the option to disable GDPR note
     - Set videoWrapper default height to 0 not to have unexpected height changes with third party GDPR extensions
+* 2.0.2
+    - Enable language sync for the fields
+    - Fix translation handling in YoutubevideoFilesProcessor
