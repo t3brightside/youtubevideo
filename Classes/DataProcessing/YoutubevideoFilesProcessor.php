@@ -19,8 +19,11 @@ class YoutubevideoFilesProcessor extends FilesProcessor
 
         // Get youtube files from content element
         $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
-        $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['uid']);
-
+        if ($cObj->data['_LOCALIZED_UID']) {
+            $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['_LOCALIZED_UID']);
+        } else {
+            $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['uid']);
+        }
         // Loop throguh files to get data and vover image relations
         foreach ($youtubeObjects as $video) {
             $previewImageObjects = $fileRepository->findByRelation('sys_file_reference', 'tx_youtubevideo_coverimage', $video->getUid());
