@@ -19,7 +19,8 @@ class YoutubevideoFilesProcessor extends FilesProcessor
 
         // Get youtube files from content element
         $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
-        if ($cObj->data['_LOCALIZED_UID']) {
+
+        if (isset($cObj->data['_LOCALIZED_UID'])) {
             $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['_LOCALIZED_UID']);
         } else {
             $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['uid']);
@@ -38,11 +39,18 @@ class YoutubevideoFilesProcessor extends FilesProcessor
             );
 
             // Get start and end time and convert it to seconds
-            $starttime = explode(':', strval($video->getProperty('tx_youtubevideo_starttime')));
-            $start = ((int)$starttime[0] * 3600) + ((int)$starttime[1] * 60) + (int)$starttime[2];
-            $endtime = explode(':', strval($video->getProperty('tx_youtubevideo_endtime')));
-            $end = ((int)$endtime[0] * 3600) + ((int)$endtime[1] * 60) + (int)$endtime[2];
-
+            if($video->getProperty('tx_youtubevideo_starttime')) {
+                $starttime = explode(':', strval($video->getProperty('tx_youtubevideo_starttime')));
+                $start = ((int)$starttime[0] * 3600) + ((int)$starttime[1] * 60) + (int)$starttime[2];
+            } else {
+                $start = 0;
+            }
+            if($video->getProperty('tx_youtubevideo_endtime')) {
+                $endtime = explode(':', strval($video->getProperty('tx_youtubevideo_endtime')));
+                $end = ((int)$endtime[0] * 3600) + ((int)$endtime[1] * 60) + (int)$endtime[2];
+            } else {
+                $end = 0;
+            }
             // Get video settings
             $settings = array(
                 'loop' => $video->getProperty('tx_youtubevideo_loop'),
