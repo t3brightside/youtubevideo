@@ -143,3 +143,7 @@
     - Fix translation handling in YoutubevideoFilesProcessor
 * 2.1.1
     - [BUGFIX] Eliminate undefined array key warnings
+* 2.2.0
+    - [TASK] Add TYPO3 12 compatibility
+    - [TASK] Drop 10.4 LTS support
+    – [TASK] Rewrite back end preview using StandardContentPreviewRenderer

@@ -31,7 +31,7 @@ class YoutubevideoFilesProcessor extends FilesProcessor
 
             // Get the original cover image and title
             $originalvideo = $video->getOriginalFile();
-            $helper = OnlineMediaHelperRegistry::getInstance()->getOnlineMediaHelper($originalvideo);
+            $helper = GeneralUtility::makeInstance(OnlineMediaHelperRegistry::class)->getOnlineMediaHelper($originalvideo);
             $previewFileName = $helper->getPreviewImage($originalvideo);
             $original = array(
                 'title' => $originalvideo->getProperty('title'),
