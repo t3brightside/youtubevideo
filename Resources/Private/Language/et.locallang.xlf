@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="gdpr-text">
-				<target state="translated">Video käivitamisel laetakse väline meedia ja YouTube teile küpsiseid!</target>
+				<target state="translated">Video käivitamisel laetakse väline meedia ja YouTube saadab teile küpsiseid!</target>
 			</trans-unit>
 			<trans-unit id="gdpr-consent">
 				<target>Nõustu ja vaata</target>
