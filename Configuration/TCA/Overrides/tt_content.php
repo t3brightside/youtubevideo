@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['youtubevideo_pi1'] =  'youtubevideo_icon';
 
@@ -100,7 +100,7 @@ $tempColumns = array(
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
-
+$GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['previewRenderer'] = \Brightside\Youtubevideo\Preview\YoutubevideoPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,
