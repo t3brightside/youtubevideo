@@ -1,8 +1,8 @@
 {
   "name": "t3brightside/youtubevideo",
-  "description": "TYPO3 CMS extension for YouTube video content with custom cover images, gallery layout and backend previews.",
+  "description": "TYPO3 CMS extension for YouTube videos with custom cover images, gallery layout, pagination, GDPR options and backend previews.",
   "type": "typo3-cms-extension",
-  "keywords": ["TYPO3", "YouTube", "video", "responsive"],
+  "keywords": ["TYPO3", "YouTube", "video", "responsive", "GDPR"],
   "homepage": "https://github.com/t3brightside/youtubevideo/",
   "license": "GPL-2.0-or-later",
   "authors": [

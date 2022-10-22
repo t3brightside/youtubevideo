@@ -3,7 +3,8 @@
          style="padding-bottom:<f:if condition="{item.settings.ratio} == 0">{ratioDefault}%</f:if><f:if condition="{item.settings.ratio} == 1">{ratio1}%</f:if>;
     ">
         <div id="player-{item.video.uid}"></div>
-        <a
+        <button
+            aria-label="Play"
             id="coverimage-{item.video.uid}"
             class="coverimage-click"
         	data-yt-code="{item.video.contents}"
@@ -23,7 +24,7 @@
         		{f:if(condition: modestbranding, then: '&quot;modestbranding&quot;: {modestbranding},')}
         	"
         	onclick="coverimageClick();
-        "></a>
+        "></button>
         <div
         	class="coverimage"
         	style="background:url(
@@ -70,9 +71,9 @@
                     </f:else>
                 </f:if>
             </div>
-            <a class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprAgreeOnce();"><f:translate key="gdpr-consent" extensionName="youtubevideo" /></a>
-            <a class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprAgree();"><f:translate key="gdpr-consentall" extensionName="youtubevideo" /></a><br />
+            <button class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" onclick="gdprAgreeOnce();"><f:translate key="gdpr-consent" extensionName="youtubevideo" /></button>
+            <button class="youtubevideo-gdpr-button" data-yt-uid="{item.video.uid}" onclick="gdprAgree();"><f:translate key="gdpr-consentall" extensionName="youtubevideo" /></button><br />
         </div>
-        <a class="youtubevideo-gdpr-cancel" data-yt-uid="{item.video.uid}" href="javascript:void(0)" onclick="gdprCancel();">×</a>
+        <button class="youtubevideo-gdpr-cancel" data-yt-uid="{item.video.uid}" onclick="gdprCancel();">×</button>
     </div>
 </f:section>

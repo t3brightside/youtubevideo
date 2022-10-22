@@ -147,3 +147,5 @@
     - [TASK] Add TYPO3 12 compatibility
     - [TASK] Drop 10.4 LTS support
     – [TASK] Rewrite back end preview using StandardContentPreviewRenderer
+* 2.2.1
+    - [TASK] Change link tags in coverimage and GDPR to button for better SEO
