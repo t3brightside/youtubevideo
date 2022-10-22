@@ -64,6 +64,18 @@
     margin-bottom: 1em;
 }
 
+.youtubevideo-gdpr-button, .youtubevideo-gdpr-cancel {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
 .youtubevideo-gdpr-button {
     text-transform: uppercase;
     border: 1px solid black;
