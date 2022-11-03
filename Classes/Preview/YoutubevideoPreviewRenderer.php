@@ -86,25 +86,24 @@ class YoutubevideoPreviewRenderer extends StandardContentPreviewRenderer
         $content .= '</div>';
         if (
             $row['tx_youtubevideo_colcount'] ||
-            $row['tx_paginatedprocessors_paginationenabled'] ||
-            $row['tx_paginatedprocessors_itemsperpage'] ||
-            $row['tx_paginatedprocessors_pagelinksshown'] ||
-            $row['tx_paginatedprocessors_pagelinksshown']
+            array_key_exists('tx_paginatedprocessors_paginationenabled', $row) && $row['tx_paginatedprocessors_paginationenabled'] ||
+            array_key_exists('tx_paginatedprocessors_itemsperpage', $row) && $row['tx_paginatedprocessors_itemsperpage'] ||
+            array_key_exists('tx_paginatedprocessors_pagelinksshown', $row) && $row['tx_paginatedprocessors_pagelinksshown']
         ) {
             $content .= '<div class="settings">';
             if ($row['tx_youtubevideo_colcount']) {
                 $content .= '<br /><b>Layout:</b> columns:' . $row['tx_youtubevideo_colcount'];
             }
             if ($extensionConfiguration['youtubevideoEnablePagination']) {
-                if ($row['tx_paginatedprocessors_paginationenabled']) {
+                if (array_key_exists('tx_paginatedprocessors_paginationenabled', $row) && $row['tx_paginatedprocessors_paginationenabled']) {
                     $content .= '<br /><b> Pagination:</b> active ';
-                    if ($row['tx_paginatedprocessors_itemsperpage']) {
+                    if (array_key_exists('tx_paginatedprocessors_itemsperpage', $row) && $row['tx_paginatedprocessors_itemsperpage']) {
                         $content .= ' &bull; items per page: ' . $row['tx_paginatedprocessors_itemsperpage'];
                     }
-                    if ($row['tx_paginatedprocessors_pagelinksshown']) {
+                    if (array_key_exists('tx_paginatedprocessors_pagelinksshown', $row) && $row['tx_paginatedprocessors_pagelinksshown']) {
                         $content .= ' &bull; links shown: ' . $row['tx_paginatedprocessors_pagelinksshown'];
                     }
-                    if ($row['tx_paginatedprocessors_urlsegment']) {
+                    if (array_key_exists('tx_paginatedprocessors_urlsegment', $row) &&  $row['tx_paginatedprocessors_urlsegment']) {
                         $content .= ' &bull; url segment: ' . $row['tx_paginatedprocessors_urlsegment'];
                     }
                 }
