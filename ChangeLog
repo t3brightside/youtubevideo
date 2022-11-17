@@ -151,3 +151,5 @@
     - [TASK] Change link tags in coverimage and GDPR to button for better SEO
 * 2.2.2
     - [TASK] Remove default button styles for GDPR and coverimage
+* 2.2.3
+    - [BUGFIX] by @mmunz - Fix undefined array key error when paginatedprocessors is not installed with PHP 8.1
