@@ -1,6 +1,3 @@
-// THIS FILE IS NO USED DIRECTLY
-// Minified and copied into Private/Resources/Templates/Youtubevideo.html
-
 youTubeApiIsLoaded = 0;
 gdprAgreedOnce = 0;
 
@@ -104,6 +101,8 @@ function onPlayerStateChange(event) {}
 function stopVideo() {
   player.stopVideo();
 }
+
+
 
 // Set video window breakpoint classes for 'small' and 'tiny'
 function youtubevideoDetectWidth(a) {

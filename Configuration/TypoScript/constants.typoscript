@@ -21,4 +21,6 @@ youtubevideo.templateRootPaths = EXT:youtubevideo/Resources/Private/Templates/
 # cat=Youtubevideo/1; type=string; label= Template root paths
 youtubevideo.partialRootPaths = EXT:youtubevideo/Resources/Private/Partials/
 # cat=Youtubevideo/1; type=string; label= CSS file path
-youtubevideo.cssPath = EXT:youtubevideo/Resources/Public/Styles/youtubevideo.css
+youtubevideo.cssFile = EXT:youtubevideo/Resources/Public/Css/youtubevideo.css
+# cat=Youtubevideo/1; type=boolean[1]; label= CSS file priority, 0 means CSS is loaded in page footer
+youtubevideo.cssPriority = 1

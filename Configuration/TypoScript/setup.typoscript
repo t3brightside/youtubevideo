@@ -1,4 +1,4 @@
-page.includeCSS.youtubevideo = {$youtubevideo.cssPath}
+# page.includeCSS.youtubevideo = {$youtubevideo.cssFile}
 
 # set JS constants for video container breakpoint classes
 page.jsFooterInline {
@@ -45,6 +45,8 @@ tt_content {
     }
     #  dataProcessing.10 = Brightside\Youtubevideo\DataProcessing\DatabaseCustomQueryProcessor
     settings {
+      cssFile = {$youtubevideo.cssFile}
+      ccsPriority = {$youtubevideo.cssPriority}
       coverimagewidth = {$youtubevideo.coverimagewidth}
       colspacewidth = {$youtubevideo.colspacewidth}
     }

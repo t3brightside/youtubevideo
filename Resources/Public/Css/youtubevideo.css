@@ -1,6 +1,5 @@
 .youtubevideo {
     position: relative;
-    font-size: 21px;
 }
 
 .youtubevideo>.videoWrapper {
@@ -49,6 +48,7 @@
 }
 
 .youtubevideo-gdpr-text {
+    font-size: .9em;
     position: absolute;
     width: 100%;
     left: 50%;
@@ -58,13 +58,13 @@
     max-width: 500px;
 }
 
-.youtubevideo-gdpr-note {
+.youtubevideo .youtubevideo-gdpr-note {
     max-width: 80%;
     margin: auto;
     margin-bottom: 1em;
 }
 
-.youtubevideo-gdpr-button, .youtubevideo-gdpr-cancel {
+.youtubevideo .youtubevideo-gdpr-button, .youtubevideo .youtubevideo-gdpr-cancel {
     background: none;
     color: inherit;
     border: none;
@@ -76,13 +76,13 @@
     -webkit-border-radius: 0;
 }
 
-.youtubevideo-gdpr-button {
+.youtubevideo .youtubevideo-gdpr-button {
     text-transform: uppercase;
     border: 1px solid black;
     line-height: 1em;
     padding: 0.5em 1em;
     display: inline-block;
-    font-size: 0.75em;
+    font-size: 0.85em;
     margin-right: 0.3em;
     margin-bottom: 0.3em;
     color: #000;
@@ -90,13 +90,13 @@
     background: #fff;
 }
 
-.youtubevideo-gdpr-button:hover {
+.youtubevideo .youtubevideo-gdpr-button:hover {
     background: #000;
     color: #fff;
     text-decoration: none;
 }
 
-.youtubevideo-gdpr-cancel {
+.youtubevideo .youtubevideo-gdpr-cancel {
     padding: 0.5em;
     position: absolute;
     top: 0;
@@ -107,15 +107,15 @@
     display: block;
 }
 
-.youtubevideo-gdpr-cancel:hover {
+.youtubevideo .youtubevideo-gdpr-cancel:hover {
     text-decoration: none;
 }
 
-.small .youtubevideo-gdpr-overlay {
+.youtubevideo .small .youtubevideo-gdpr-overlay {
     font-size: 0.8em;
 }
 
-.tiny .youtubevideo-gdpr-overlay {
+.youtubevideo .tiny .youtubevideo-gdpr-overlay {
     font-size: 0.65em;
 }
 
@@ -247,7 +247,7 @@
         text-decoration: none;
     }
 
-    .youtubevideo-gdpr-cancel {
+    .youtubevideo .youtubevideo-gdpr-cancel {
         color: #fff;
     }
 }
