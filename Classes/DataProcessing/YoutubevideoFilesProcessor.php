@@ -4,6 +4,7 @@ namespace Brightside\Youtubevideo\DataProcessing;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\DataProcessing\FilesProcessor;
+use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
 use Brightside\Paginatedprocessors\Processing\DataToPaginatedData;
 
@@ -18,7 +19,7 @@ class YoutubevideoFilesProcessor extends FilesProcessor
         $allProcessedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
 
         // Get youtube files from content element
-        $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+        $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
 
         if (isset($cObj->data['_LOCALIZED_UID'])) {
             $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['_LOCALIZED_UID']);

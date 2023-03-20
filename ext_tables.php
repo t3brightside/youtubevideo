@@ -1,6 +1,7 @@
 <?php
+defined('TYPO3') || die('Access denied.');
 
-defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
-
-$GLOBALS['TBE_STYLES']['skins']['youtubevideo']['stylesheetDirectories'][] =
-    'EXT:youtubevideo/Resources/Public/Styles/Backend/';
+(function () {
+    $GLOBALS['TBE_STYLES']['skins']['youtubevideo']['stylesheetDirectories'][] =
+        'EXT:youtubevideo/Resources/Public/Css/Backend/';
+})();

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2020-02-23T18:12:17Z"
-		  product-name="content_slug">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-11-27T22:26:21Z" product-name="youtubevideo">
 		<header/>
 		<body>
-			<trans-unit id="gdpr-text">
+			<trans-unit id="gdpr-text" xml:space="preserve">
 				<source>On 'Play' external media is loaded and YouTube sends you some cookies!</source>
 			</trans-unit>
-			<trans-unit id="gdpr-consent">
+			<trans-unit id="gdpr-consent" xml:space="preserve">
 				<source>Accept &amp; Play</source>
 			</trans-unit>
-			<trans-unit id="gdpr-consentall">
+			<trans-unit id="gdpr-consentall" xml:space="preserve">
 				<source>Accept for All Videos &amp; Play</source>
 			</trans-unit>
-			<trans-unit id="gdpr-cancel">
+			<trans-unit id="gdpr-cancel" xml:space="preserve">
 				<source>Cancel</source>
 			</trans-unit>
 		</body>

@@ -1,18 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.0">
-	<file source-language="en" target-language="et" datatype="plaintext" original="messages" date="2021-11-04T17:54:12Z" product-name="paginatedprocessors">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="et" datatype="plaintext" original="messages" date="2018-11-27T22:26:21Z" product-name="youtubevideo">
 		<header/>
 		<body>
-			<trans-unit id="gdpr-text">
-				<target state="translated">Video käivitamisel laetakse väline meedia ja YouTube saadab teile küpsiseid!</target>
+			<trans-unit id="gdpr-text" xml:space="preserve">
+				<source>On Play external media is loaded and YouTube sends you some cookies!</source>
+				<target>Video käivitamisel laetakse väline meedia ja YouTube saadab teile küpsiseid!</target>
 			</trans-unit>
-			<trans-unit id="gdpr-consent">
+			<trans-unit id="gdpr-consent" xml:space="preserve">
+				<source>Accept &amp; Play</source>
 				<target>Nõustu ja vaata</target>
 			</trans-unit>
-			<trans-unit id="gdpr-consentall">
+			<trans-unit id="gdpr-consentall" xml:space="preserve">
+				<source>Accept for All Videos &amp; Play</source>
 				<target>Nõustu ka edaspidi ja vaata</target>
 			</trans-unit>
-			<trans-unit id="gdpr-cancel">
+			<trans-unit id="gdpr-cancel" xml:space="preserve">
+				<source>Cancel</source>
 				<target>Loobu</target>
 			</trans-unit>
 		</body>
