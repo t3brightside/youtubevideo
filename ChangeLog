@@ -153,3 +153,11 @@
     - [TASK] Remove default button styles for GDPR and coverimage
 * 2.2.3
     - [BUGFIX] by @mmunz - Fix undefined array key error when paginatedprocessors is not installed with PHP 8.1
+* 2.2.4
+    – [TASK] Improve GDPR note CSS
+* 2.2.5
+    - [TASK] Follow coding guidelines for ext_localconf
+    - [TASK] Code cleanup
+* 2.3.0
+    - [TASK] Load CSS and JS on demand with embedassets
+    - [TASK] (!BREAKING!) Rename CSS file location constant
