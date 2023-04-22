@@ -24,3 +24,5 @@ youtubevideo.partialRootPaths = EXT:youtubevideo/Resources/Private/Partials/
 youtubevideo.cssFile = EXT:youtubevideo/Resources/Public/Css/youtubevideo.css
 # cat=Youtubevideo/1; type=boolean[1]; label= CSS file priority, 0 means CSS is loaded in page footer
 youtubevideo.cssPriority = 1
+# cat=Youtubevideo/1; type=sting; label= Force image file format (make sure it's enabled in [GFX][imagefile_ext])
+youtubevideo.forceImageFileFormat =

@@ -35,10 +35,11 @@
         					treatIdAsReference="1"
         					width="{coverImageWidth_x2}"
         					cropVariant="{f:if(condition: item.settings.ratio, then: 'tv', else: 'widescreen')}"
+                            fileExtension="{settings.forceImageFileFormat}"
         				/>
         			</f:then>
         			<f:else>
-                        <f:uri.image src="{item.original.preview}" width="{coverImageWidth_x2}" />
+                        <f:uri.image src="{item.original.preview}" width="{coverImageWidth_x2}" fileExtension="{settings.forceImageFileFormat}" />
                     </f:else>
         		</f:if>
         	) center center no-repeat; background-size: cover;">

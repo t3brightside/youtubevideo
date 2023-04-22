@@ -49,6 +49,7 @@ tt_content {
       ccsPriority = {$youtubevideo.cssPriority}
       coverimagewidth = {$youtubevideo.coverimagewidth}
       colspacewidth = {$youtubevideo.colspacewidth}
+      forceImageFileFormat = {$youtubevideo.forceImageFileFormat}
     }
     variables {
       # language code use de, fr, et etc.
