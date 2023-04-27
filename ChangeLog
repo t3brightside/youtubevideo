@@ -161,3 +161,5 @@
 * 2.3.0
     - [TASK] Load CSS and JS on demand with embedassets
     - [TASK] (!BREAKING!) Rename CSS file location constant
+* 2.4.0
+    - [FEATURE] Force image file format TS constant
