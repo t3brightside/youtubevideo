@@ -4,16 +4,23 @@
 	<f:layout name="Default" />
 	<f:section name="Main">
         <ea:asset.css embed="1" priority="{settings.cssPriority}" identifier="youtubeDefault" href="{settings.cssFile}" />
-        <f:if condition="{youtubevideos -> f:count()} < {data.tx_youtubevideo_colcount}">
-            <f:then><f:variable name="colCount">{youtubevideos -> f:count()}</f:variable></f:then>
-            <f:else><f:variable name="colCount">{data.tx_youtubevideo_colcount}</f:variable></f:else>
-        </f:if>
+        <f:if condition="{data.tx_youtubevideo_colcount}">
+            <f:then>
+                <f:if condition="{youtubevideos -> f:count()} < {data.tx_youtubevideo_colcount}">
+                    <f:then><f:variable name="colCount">{youtubevideos -> f:count()}</f:variable></f:then>
+                    <f:else><f:variable name="colCount">{data.tx_youtubevideo_colcount}</f:variable></f:else>
+                </f:if>
 
-		<f:variable name="spaceWidthTotal">{colCount - 1 * settings.colspacewidth}</f:variable>
-		<f:variable name="itemWidth">{100 - spaceWidthTotal / colCount}</f:variable>
-		<f:variable name="spaceInPx">{colCount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
-		<f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / colCount}</f:variable>
-		<f:variable name="coverImageWidth_x2">{coverImageWidth * 2}</f:variable>
+                <f:variable name="spaceWidthTotal">{colCount - 1 * settings.colspacewidth}</f:variable>
+                <f:variable name="itemWidth">{100 - spaceWidthTotal / colCount}</f:variable>
+                <f:variable name="spaceInPx">{colCount - 1 * settings.colspacewidth / 100 * settings.coverimagewidth}</f:variable>
+                <f:variable name="coverImageWidth">{settings.coverimagewidth - spaceInPx / colCount}</f:variable>
+                <f:variable name="coverImageWidth_x2">{coverImageWidth * 2}</f:variable>
+            </f:then>
+            <f:else>
+                <f:variable name="coverImageWidth_x2">{settings.coverimagewidth * 2}</f:variable>
+            </f:else>
+        </f:if>
 
 		<f:if condition="{youtubevideos -> f:count()} > 1">
 			<div id="youtubevideogallery-{data.uid}" class="youtubevideogallery colcount-{colCount}">
