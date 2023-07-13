@@ -21,6 +21,7 @@ class YoutubevideoFilesProcessor extends FilesProcessor
         // Get youtube files from content element
         $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
 
+        $youtubeVideos = [];
         if (isset($cObj->data['_LOCALIZED_UID'])) {
             $youtubeObjects = $fileRepository->findByRelation('tt_content', 'tx_youtubevideo_assets', $cObj->data['_LOCALIZED_UID']);
         } else {
@@ -92,9 +93,7 @@ class YoutubevideoFilesProcessor extends FilesProcessor
                 $allProcessedData['youtubevideos'],
                 'youtubevideos'
             );
-            return $allProcessedData;
-        } else {
-            return $allProcessedData;
         }
+        return $allProcessedData;
     }
 }
