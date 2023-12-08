@@ -12,6 +12,8 @@ youtubevideo.breakpointTiny = 300
 youtubevideo.gdprnote = 1
 # cat=Youtubevideo/1; type=string; label= Override GDPR notification text
 youtubevideo.gdprtextoverride =
+# cat=Youtubevideo/1; type=string; label= Link to YouTube privacy terms
+youtubevideo.privacytermslink = https://policies.google.com/privacy
 # cat=Youtubevideo/youtubevideo; type=int+; label= Padding between images in % of outside container
 youtubevideo.colspacewidth = 1.5
 # cat=Youtubevideo/youtubevideo; type=boolean[1]; label= Iframe instead of API on demand, not GDPR friendly

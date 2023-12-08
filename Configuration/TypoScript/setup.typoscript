@@ -85,6 +85,9 @@ tt_content {
       gdprtextoverride = TEXT
       gdprtextoverride.value = {$youtubevideo.gdprtextoverride}
 
+      privacytermslink = TEXT
+      privacytermslink.value = {$youtubevideo.privacytermslink}
+
       colspacewidth = TEXT
       colspacewidth.value = {$youtubevideo.colspacewidth}
 

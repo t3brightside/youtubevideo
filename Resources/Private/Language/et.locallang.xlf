@@ -5,7 +5,15 @@
 		<body>
 			<trans-unit id="gdpr-text" xml:space="preserve">
 				<source>On Play external media is loaded and YouTube sends you some cookies!</source>
-				<target>Video käivitamisel laetakse väline meedia ja YouTube saadab teile küpsiseid!</target>
+				<target>Video käivitamisel laetakse väline meedia ja</target>
+			</trans-unit>
+			<trans-unit id="gdpr-privacylinktext" xml:space="preserve">
+				<source>privacy policy of YouTube</source>
+				<target>YouTube'i privaatsuseeskirjad</target>
+			</trans-unit>
+			<trans-unit id="gdpr-text-afterlink" xml:space="preserve">
+				<source>applies</source>
+				<target>kohalduvad</target>
 			</trans-unit>
 			<trans-unit id="gdpr-consent" xml:space="preserve">
 				<source>Accept &amp; Play</source>

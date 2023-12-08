@@ -4,7 +4,16 @@
 		<header/>
 		<body>
 			<trans-unit id="gdpr-text">
-				<target>Wenn Sie das Video abspielen, sendet YouTube Ihnen einige Cookies!</target>
+				<source>On 'Play' external media is loaded and the</source>
+				<target>Auf 'Play' wird externer Medieninhalt geladen, und</target>
+			</trans-unit>
+			<trans-unit id="gdpr-privacylinktext" xml:space="preserve">
+				<source>privacy policy of YouTube</source>
+				<target>die Datenschutzrichtlinie von YouTube</target>
+			</trans-unit>
+			<trans-unit id="gdpr-text-afterlink" xml:space="preserve">
+				<source>applies</source>
+				<target>gilt</target>
 			</trans-unit>
 			<trans-unit id="gdpr-consent">
 				<target>Accept &amp; Play</target>

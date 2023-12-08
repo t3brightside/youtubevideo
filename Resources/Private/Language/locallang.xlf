@@ -4,7 +4,13 @@
 		<header/>
 		<body>
 			<trans-unit id="gdpr-text" xml:space="preserve">
-				<source>On 'Play' external media is loaded and YouTube sends you some cookies!</source>
+				<source>On 'Play' external media is loaded and the</source>
+			</trans-unit>
+			<trans-unit id="gdpr-privacylinktext" xml:space="preserve">
+				<source>privacy policy of YouTube</source>
+			</trans-unit>
+			<trans-unit id="gdpr-text-afterlink" xml:space="preserve">
+				<source>applies</source>
 			</trans-unit>
 			<trans-unit id="gdpr-consent" xml:space="preserve">
 				<source>Accept &amp; Play</source>

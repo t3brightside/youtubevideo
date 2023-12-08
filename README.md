@@ -39,8 +39,7 @@ Version 2.0.0 is not compatible with older versions of the extension. There is n
 ### GDPR compliance
 - No external media or cookies loaded before clicking 'Accept & Play'
 - No intrusive GDPR notification before actually clicking on the video
-- Accept cookies to current or all videos on the domain
-- Concent cookie: youtubevideo-consent=1
+- Accept YouTube privacy policy to current or all videos on the domain
 
 ## Installation
 - `composer req t3brightside/youtubevideo` or from TYPO3 extension repository [youtubevideo](https://extensions.typo3.org/extension/youtubevideo/)
