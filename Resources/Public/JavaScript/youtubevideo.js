@@ -1,12 +1,9 @@
 youTubeApiIsLoaded = 0;
 gdprAgreedOnce = 0;
 
-// Read cookies
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
-  else return null;
+// Read consent status from localStorage
+function getConsentStatus() {
+  return localStorage.getItem('youtubevideo-consent');
 }
 
 // Cancel without playing the video
@@ -14,15 +11,16 @@ function gdprCancel() {
   var el = (event.target || event.srcElement);
   dataYtUid = 0;
   dataYtUid = el.getAttribute('data-yt-uid');
-  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+  document.getElementById('gdpr-' + dataYtUid).style.display = 'none';
 }
-// Agree and remember by setting cookie
+
+// Agree and remember by setting localStorage
 function gdprAgree() {
-  document.cookie = "youtubevideo-consent=1; path=/;";
+  localStorage.setItem('youtubevideo-consent', '1');
   var el = (event.target || event.srcElement);
   dataYtUid = 0;
   dataYtUid = el.getAttribute('data-yt-uid');
-  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+  document.getElementById('gdpr-' + dataYtUid).style.display = 'none';
   document.getElementById('coverimage-' + dataYtUid).click();
 }
 
@@ -32,35 +30,37 @@ function gdprAgreeOnce() {
   dataYtUid = 0;
   dataYtUid = el.getAttribute('data-yt-uid');
   gdprAgreedOnce = dataYtUid;
-  document.getElementById('gdpr-' + dataYtUid).style.display='none';
+  document.getElementById('gdpr-' + dataYtUid).style.display = 'none';
   document.getElementById('coverimage-' + dataYtUid).click();
 }
+
 // What happens on clicking the cover image
 function coverimageClick(event) {
   if (!event) {
     event = window.event;
-  };
+  }
   var el = (event.target || event.srcElement);
-    playerId = 0;
-    playerId = el.getAttribute('data-yt-id');
-    dataYtCode = 0;
-    dataYtCode = el.getAttribute('data-yt-code');
-    dataYtVars = 0;
-    dataYtVars = JSON.parse('{' + el.getAttribute('data-yt-vars').replace(/,\s*$/, "") + '}');
-    dataYtHost = 0;
-    dataYtHost = el.getAttribute('data-yt-host');
-    dataYtUid = 0;
-    dataYtUid = el.getAttribute('data-yt-uid');
-    if (getCookie('youtubevideo-consent') || (gdprAgreedOnce == dataYtUid) || disableGdpr) {
-      if (youTubeApiIsLoaded) {
-        loadPlayer();
-      } else {
-        loadYouTubeApi();
-      }
-      el.classList.add('play');
+  playerId = 0;
+  playerId = el.getAttribute('data-yt-id');
+  dataYtCode = 0;
+  dataYtCode = el.getAttribute('data-yt-code');
+  dataYtVars = 0;
+  dataYtVars = JSON.parse('{' + el.getAttribute('data-yt-vars').replace(/,\s*$/, "") + '}');
+  dataYtHost = 0;
+  dataYtHost = el.getAttribute('data-yt-host');
+  dataYtUid = 0;
+  dataYtUid = el.getAttribute('data-yt-uid');
+
+  if (getConsentStatus() || (gdprAgreedOnce == dataYtUid) || disableGdpr) {
+    if (youTubeApiIsLoaded) {
+      loadPlayer();
     } else {
-      document.getElementById('gdpr-' + dataYtUid).style.display = 'block';
+      loadYouTubeApi();
     }
+    el.classList.add('play');
+  } else {
+    document.getElementById('gdpr-' + dataYtUid).style.display = 'block';
+  }
 }
 
 // Load YouTube API
