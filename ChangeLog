@@ -163,3 +163,7 @@
     - [TASK] (!BREAKING!) Rename CSS file location constant
 * 2.4.0
     - [FEATURE] Force image file format TS constant
+* 2.5.0
+    - [FEATURE] Use local storage for remembering privacy agreement
+    - [TASK] Add dependency on paginatedprocessors
+    - [TASK] Add link to YouTube privacy policy
