@@ -10,7 +10,7 @@
 **[Demo](https://microtemplate.t3brightside.com)**
 
 ## !!! Important
-Version 2.0.0 is not compatible with older versions of the extension. There is no upgrade wizard – you're welcome to add one :)
+Version 2.0.0 is not compatible with older versions of the extension. There is no upgrade wizard.
 
 ## System requirements
 
@@ -37,7 +37,7 @@ Version 2.0.0 is not compatible with older versions of the extension. There is n
 - custom cover image
 
 ### GDPR compliance
-- No external media or cookies loaded before clicking 'Accept & Play'
+- No external media or cookies before clicking 'Accept & Play'
 - No intrusive GDPR notification before actually clicking on the video
 - Accept YouTube privacy policy to current or all videos on the domain
 
@@ -45,7 +45,6 @@ Version 2.0.0 is not compatible with older versions of the extension. There is n
 - `composer req t3brightside/youtubevideo` or from TYPO3 extension repository [youtubevideo](https://extensions.typo3.org/extension/youtubevideo/)
 -  Include static template
 -  Alter the TypoScript constants if needed
-- Install [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors) for pagination
 - Extension Configuration: Back end player (default: enabled)
 - Extension Configuration: Pagination features (default: disabled)
 
