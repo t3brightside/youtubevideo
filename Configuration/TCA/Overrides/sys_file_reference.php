@@ -1,52 +1,46 @@
 <?php
 
 $youtubeVideoColumns = array(
-    'tx_youtubevideo_rel' => array (
-    'exclude' => 1,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_rel.title',
-    'config' => [
-      'type' => 'check',
-      'renderType' => 'checkboxToggle',
-      'default' => 1,
-      'behaviour' => [
-        'allowLanguageSynchronization' => true,
-      ],
-      'items' => [
-        [
-          0 => '',
-          1 => '',
-        ]
-      ],
-    ]
-  ),
-  'tx_youtubevideo_starttime' => array(
-    'exclude' => 0,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_starttime.title',
-    'config' => array(
-      'type' => 'input',
-      'size' => '8',
-      'eval' => 'trim,nospace,Brightside\Youtubevideo\Evaluation\HoursMinutesSeconds',
-      'behaviour' => [
-        'allowLanguageSynchronization' => true,
-      ],
-    ),
-  ),
-  'tx_youtubevideo_endtime' => array(
-    'exclude' => 0,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_endtime.title',
-    'config' => array(
-      'type' => 'input',
-      'size' => '1',
-      'eval' => 'trim,nospace,Brightside\Youtubevideo\Evaluation\HoursMinutesSeconds',
-      'behaviour' => [
-        'allowLanguageSynchronization' => true,
-      ],
-    ),
-  ),
-  'tx_youtubevideo_ratio' => array(
+    'tx_youtubevideo_rel' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_rel.title',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'default' => 1,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
+    'tx_youtubevideo_starttime' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_starttime.title',
+        'config' => [
+            'type' => 'input',
+            'size' => '8',
+            'eval' => 'trim,nospace,Brightside\Youtubevideo\Evaluation\HoursMinutesSeconds',
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
+    'tx_youtubevideo_endtime' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_endtime.title',
+        'config' => [
+            'type' => 'input',
+            'size' => '1',
+            'eval' => 'trim,nospace,Brightside\Youtubevideo\Evaluation\HoursMinutesSeconds',
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
+    'tx_youtubevideo_ratio' => [
         'exclude' => 1,
         'label'   => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_ratio.title',
-        'config'  => array(
+        'config'  => [
             'type'     => 'select',
             'renderType' => 'selectSingle',
             'items' => [
@@ -56,118 +50,98 @@ $youtubeVideoColumns = array(
             'size'     => 1,
             'maxitems' => 1,
             'behaviour' => [
-              'allowLanguageSynchronization' => true,
+                'allowLanguageSynchronization' => true,
             ]
-        )
-    ),
-    'tx_youtubevideo_mute' => array (
-      'exclude' => 1,
-      'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_mute.title',
-      'config' => [
-        'type' => 'check',
-        'renderType' => 'checkboxToggle',
-        'behaviour' => [
-          'allowLanguageSynchronization' => true,
         ],
-        'items' => [
-          [
-            0 => '',
-            1 => '',
-          ]
-        ],
-      ]
-    ),
-    'tx_youtubevideo_fullscreen' => array (
-    'exclude' => 1,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_fullscreen.title',
-    'config' => [
-      'type' => 'check',
-      'renderType' => 'checkboxToggle',
-      'default' => 1,
-      'behaviour' => [
-        'allowLanguageSynchronization' => true,
-      ],
-      'items' => [
-        [
-          0 => '',
-          1 => '',
-          'invertStateDisplay' => false,
-        ]
-      ],
-    ]
-  ),
-  'tx_youtubevideo_loop' => array (
-    'exclude' => 1,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_loop.title',
-    'config' => [
-      'type' => 'check',
-      'renderType' => 'checkboxToggle',
-      'behaviour' => [
-        'allowLanguageSynchronization' => true,
-      ],
-      'items' => [
-        [
-          0 => '',
-          1 => '',
-        ]
-      ],
-    ]
-  ),
-  'tx_youtubevideo_coverimage' => [
-    'exclude' => 1,
-    'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_cover.image',
-    'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-      'tx_youtubevideo_coverimage',
-      [
-        'behaviour' => [
-          'allowLanguageSynchronization' => true,
-        ],
-        'overrideChildTca' => [
-          'columns' => [
-            'crop' => [
-              'config' => [
-                'cropVariants' => [
-                  'widescreen' => [
-                    'title' => 'Widescreen (16:9)',
-                    'selectedRatio' => '16:9',
-                    'allowedAspectRatios' => [
-                      '16:9' => [
-                        'title' => 'Widescreen',
-                        'value' => 16 / 9,
-                      ],
-                    ],
-                  ],
-                  'tv' => [
-                    'title' => 'Standard (4:3)',
-                    'selectedRatio' => '4:3',
-                    'allowedAspectRatios' => [
-                      '4:3' => [
-                        'title' => 'TV',
-                        'value' => 4 / 3,
-                      ],
-                    ],
-                  ],
-                ],
-              ],
-            ],
-          ],
-          'types' => [
-            '0' => [
-              'showitem' => '
-                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                --palette--;;filePalette'
-            ],
-            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-              'showitem' => '
-              crop,
-              --palette--;;filePalette'
-          ],
-        ],
-      ],
     ],
-    $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-  ),
-  ],
+    'tx_youtubevideo_mute' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_mute.title',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+
+        ],
+    ],
+    'tx_youtubevideo_fullscreen' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_fullscreen.title',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'default' => 1,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
+    'tx_youtubevideo_loop' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_loop.title',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
+    'tx_youtubevideo_coverimage' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf:tx_youtubevideo_cover.image',
+        'config' => [
+            'type' => 'file',
+            'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+            'overrideChildTca' => [
+                'columns' => [
+                    'crop' => [
+                        'config' => [
+                            'cropVariants' => [
+                                'widescreen' => [
+                                    'title' => 'Widescreen (16:9)',
+                                    'selectedRatio' => '16:9',
+                                    'allowedAspectRatios' => [
+                                        '16:9' => [
+                                            'title' => 'Widescreen',
+                                            'value' => 16 / 9,
+                                        ],
+                                    ],
+                                ],
+                                'tv' => [
+                                    'title' => 'Standard (4:3)',
+                                    'selectedRatio' => '4:3',
+                                    'allowedAspectRatios' => [
+                                        '4:3' => [
+                                            'title' => 'TV',
+                                            'value' => 4 / 3,
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                'types' => [
+                    '0' => [
+                        'showitem' => '
+                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                        --palette--;;filePalette'
+                    ],
+                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        'showitem' => '
+                        crop,
+                        --palette--;;filePalette'
+                    ],
+                ],
+            ],
+        ],
+    ],
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(

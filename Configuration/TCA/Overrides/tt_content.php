@@ -1,45 +1,50 @@
 <?php
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['youtubevideo_pi1'] =  'youtubevideo_icon';
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-	'tt_content', 'EXT:youtubevideo/Resources/Private/Language/locallang_db.xlf'
-);
-
 // Get extension configuration
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+$extensionConfiguration = GeneralUtility::makeInstance(
+    ExtensionConfiguration::class
 );
 $extensionConfiguration = $extensionConfiguration->get('youtubevideo');
 
 // Add to content type dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    "tt_content",
-    "CType",
+ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
     [
-        'YouTube Video',
-        'youtubevideo_pi1',
-        'youtubevideo_icon'
+        'label' => 'YouTube Video',
+        'description' => '',
+        'value' => 'youtubevideo_pi1',
+        'icon' => 'youtubevideo_icon',
+        'group' => 'default',
     ],
     'textmedia',
     'after'
 );
 
+
+
 $tempColumns = array(
 	'tx_youtubevideo_assets' => [
 		'exclude' => 1,
 		'label' => 'Video',
-		'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('tx_youtubevideo_assets', [
-			'behaviour' => [
+        'config' => [
+            'type' => 'file',
+            'allowed' => 'youtube',
+            'behaviour' => [
                 'allowLanguageSynchronization' => true,
             ],
 			'appearance' => [
 				'createNewRelationLinkTitle' => 'Video',
 				'showPossibleLocalizationRecords' => true,
 			],
-			'overrideChildTca' => [
+            'overrideChildTca' => [
 				'types' => [
 					\TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
 						'showitem' => '
@@ -48,7 +53,8 @@ $tempColumns = array(
 					],
 				],
 			],
-		], 'youtube'),
+        ],
+
 	],
 	'tx_youtubevideo_colcount' => [
 		'exclude' => 1,
@@ -86,12 +92,6 @@ $tempColumns = array(
 		'config' => [
 			'type' => 'check',
 			'renderType' => 'checkboxToggle',
-			'items' => [
-				[
-					0 => '',
-					1 => '',
-				]
-			],
 			'behaviour' => [
                 'allowLanguageSynchronization' => true,
             ],
@@ -99,7 +99,7 @@ $tempColumns = array(
 	],
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
+ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['previewRenderer'] = \Brightside\Youtubevideo\Preview\YoutubevideoPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['youtubevideo_pi1']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,

@@ -9,7 +9,6 @@ CREATE TABLE tt_content (
 	tx_youtubevideo_descriptions int(1) DEFAULT '0' NOT NULL,
 );
 
-
 CREATE TABLE sys_file_reference (
 	tx_youtubevideo_autoplay tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	tx_youtubevideo_rel tinyint(1) unsigned DEFAULT '0' NOT NULL,

@@ -2,6 +2,6 @@
 defined('TYPO3') || die('Access denied.');
 
 (function () {
-    $GLOBALS['TBE_STYLES']['skins']['youtubevideo']['stylesheetDirectories'][] =
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['youtubevideo'] =
         'EXT:youtubevideo/Resources/Public/Css/Backend/';
 })();
