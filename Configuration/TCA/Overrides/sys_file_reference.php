@@ -98,6 +98,9 @@ $youtubeVideoColumns = array(
             'behaviour' => [
                 'allowLanguageSynchronization' => true,
             ],
+            'appearance' => [
+                'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+            ],
             'overrideChildTca' => [
                 'columns' => [
                     'crop' => [
