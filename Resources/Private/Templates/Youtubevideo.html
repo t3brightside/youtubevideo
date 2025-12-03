@@ -3,7 +3,7 @@
 
 	<f:layout name="Default" />
 	<f:section name="Main">
-        <ea:asset.css embed="1" priority="{settings.cssPriority}" identifier="youtubeDefault" href="{settings.cssFile}" />
+        <ea:asset.css embed="{settings.cssEmbed}" priority="{settings.cssPriority}" identifier="youtubeDefault" href="{settings.cssFile}" />
         <f:if condition="{data.tx_youtubevideo_colcount}">
             <f:then>
                 <f:if condition="{youtubevideos -> f:count()} < {data.tx_youtubevideo_colcount}">
