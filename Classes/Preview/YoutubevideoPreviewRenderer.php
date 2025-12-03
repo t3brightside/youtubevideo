@@ -65,11 +65,6 @@ class YoutubevideoPreviewRenderer extends StandardContentPreviewRenderer impleme
         
         $content = '';
 
-        // Header rendering
-        if (isset($row['header']) && $row['header']) {
-            $content .= $this->linkEditContent('<b>' . $this->renderText((string)$row['header']) . '</b>', $item->getRecord());
-        }
-
         // Get file references and clean up UIDs
         $fileReferenceValue = (string)($row['tx_youtubevideo_assets'] ?? '');
         $cleanedUids = GeneralUtility::intExplode(',', $fileReferenceValue, true);
@@ -146,7 +141,7 @@ class YoutubevideoPreviewRenderer extends StandardContentPreviewRenderer impleme
             (array_key_exists('tx_paginatedprocessors_itemsperpage', $row) && $row['tx_paginatedprocessors_itemsperpage']) ||
             (array_key_exists('tx_paginatedprocessors_pagelinksshown', $row) && $row['tx_paginatedprocessors_pagelinksshown'])
         ) {
-            $content .= '<div class="settings">';
+            $content .= '<div>';
             
             if (($row['tx_youtubevideo_colcount'] ?? null)) {
                 $text = '<b>Layout:</b> columns:' . $row['tx_youtubevideo_colcount'];
