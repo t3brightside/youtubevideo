@@ -2,6 +2,15 @@
 declare(strict_types=1);
 
 use TYPO3\CMS\Core\Resource\FileType;
+use \TYPO3\CMS\Core\Resource\File;
+
+if (class_exists(FileType::class)) {
+    // For TYPO3 v12.0+ (and v13+), use the value from the enum
+    $imageFileType = FileType::IMAGE->value;
+} else {
+    // For TYPO3 v11 and below, use the deprecated class constant
+    $imageFileType = File::FILETYPE_IMAGE;
+}
 
 $youtubeVideoColumns = array(
     'tx_youtubevideo_rel' => [
@@ -139,7 +148,7 @@ $youtubeVideoColumns = array(
                         --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                         --palette--;;filePalette'
                     ],
-                    FileType::IMAGE->value=> [
+                    $imageFileType => [
                         'showitem' => '
                         crop,
                         --palette--;;filePalette'

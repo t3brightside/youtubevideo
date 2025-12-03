@@ -5,7 +5,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Resource\FileType;
-
+use \TYPO3\CMS\Core\Resource\File;
 
 defined('TYPO3') || die('Access denied.');
 
@@ -32,7 +32,13 @@ ExtensionManagementUtility::addTcaSelectItem(
     'after'
 );
 
-
+if (class_exists(FileType::class)) {
+    // For TYPO3 v12.0+ (and v13+), use the value from the enum
+    $videoFileType = FileType::VIDEO->value;
+} else {
+    // For TYPO3 v11 and below, use the deprecated class constant
+    $videoFileType = File::FILETYPE_VIDEO;
+}
 
 $tempColumns = array(
 	'tx_youtubevideo_assets' => [
@@ -50,7 +56,7 @@ $tempColumns = array(
 			],
             'overrideChildTca' => [
 				'types' => [
-					FileType::VIDEO->value=> [
+					$videoFileType=> [
 						'showitem' => '
 							--palette--;;youtubevideoOverlayPalette,
 							--palette--;;filePalette',
