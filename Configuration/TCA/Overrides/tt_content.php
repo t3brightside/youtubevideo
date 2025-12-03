@@ -6,6 +6,8 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Resource\FileType;
 use \TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 
 defined('TYPO3') || die('Access denied.');
 
