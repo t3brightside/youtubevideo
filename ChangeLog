@@ -171,3 +171,15 @@
     - [TASK] add v13 compatibility and drop v11
     - [TASK] move BE validation to external JS
     - [TASK] Improve doc
+* 3.0.0
+    - [TASK] add v13 compatibility and drop v11
+    - [TASK] move BE validation to external JS
+    - [TASK] Improve doc
+* 3.1.0
+    [TASK] add v14 compatibility
+    [TASK] add embed setting constant
+    [BUGFIX] css priority setting constant name fix
+    [TASK] add cssEmbed constant
+    [TASK] Add site sets
+* 3.1.1
+    [TASK] update changelog
