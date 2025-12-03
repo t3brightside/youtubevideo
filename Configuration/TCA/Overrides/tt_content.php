@@ -1,9 +1,13 @@
 <?php
+declare(strict_types=1);
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Resource\FileType;
 
-defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
+
+defined('TYPO3') || die('Access denied.');
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['youtubevideo_pi1'] =  'youtubevideo_icon';
 
@@ -46,7 +50,7 @@ $tempColumns = array(
 			],
             'overrideChildTca' => [
 				'types' => [
-					\TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+					FileType::VIDEO->value=> [
 						'showitem' => '
 							--palette--;;youtubevideoOverlayPalette,
 							--palette--;;filePalette',

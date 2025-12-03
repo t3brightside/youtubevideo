@@ -1,4 +1,7 @@
 <?php
+declare(strict_types=1);
+
+use TYPO3\CMS\Core\Resource\FileType;
 
 $youtubeVideoColumns = array(
     'tx_youtubevideo_rel' => [
@@ -136,7 +139,7 @@ $youtubeVideoColumns = array(
                         --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                         --palette--;;filePalette'
                     ],
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                    FileType::IMAGE->value=> [
                         'showitem' => '
                         crop,
                         --palette--;;filePalette'

@@ -3,6 +3,7 @@
 [![Packagist](https://img.shields.io/packagist/v/t3brightside/youtubevideo.svg?style=flat)](https://packagist.org/packages/t3brightside/youtubevideo)
 [![TYPO3](https://img.shields.io/badge/TYPO3-v12-orange.svg?style=flat)](https://extensions.typo3.org/extension/youtubevideo)
 [![TYPO3](https://img.shields.io/badge/TYPO3-v13-orange.svg?style=flat)](https://extensions.typo3.org/extension/youtubevideo)
+[![TYPO3](https://img.shields.io/badge/TYPO3-v14-orange.svg?style=flat)](https://extensions.typo3.org/extension/youtubevideo)
 [![Downloads](https://poser.pugx.org/t3brightside/youtubevideo/downloads)](https://packagist.org/packages/t3brightside/youtubevideo)
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
 
