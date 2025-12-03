@@ -1,0 +1,99 @@
+# page.includeCSS.youtubevideo = {$youtubevideo.cssFile}
+
+# set JS constants for video container breakpoint classes
+page.jsFooterInline {
+  10982311 = TEXT
+  10982311.value (
+    containerBreakpointSmall = {$youtubevideo.breakpointSmall};
+    containerBreakpointTiny = {$youtubevideo.breakpointTiny};
+  )
+}
+
+tt_content {
+  youtubevideo_pi1 =< lib.contentElement
+  youtubevideo_pi1 {
+    templateName = Youtubevideo
+    templateName = TEXT
+    # load iframe template if constant has been set
+    templateName.stdWrap {
+      cObject = TEXT
+      cObject {
+        value = YoutubevideoIframe
+        if.isTrue = {$youtubevideo.iframe}
+      }
+      ifEmpty = Youtubevideo
+    }
+
+    templateRootPaths.20909 = {$youtubevideo.templateRootPaths}
+    partialRootPaths.20909 = {$youtubevideo.partialRootPaths}
+    dataProcessing {
+      10 = Brightside\Youtubevideo\DataProcessing\YoutubevideoFilesProcessor
+      10 {
+        pagination {
+          isActive.field = tx_paginatedprocessors_paginationenabled
+          uniqueId.field = uid
+          uniqueId.override.field = tx_paginatedprocessors_urlsegment
+          itemsPerPage = tx_paginatedprocessors_itemsperpage
+          itemsPerPage.field = tx_paginatedprocessors_itemsperpage
+          pageLinksShown = 5
+          pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
+          anchorActive.field = tx_paginatedprocessors_anchor
+          anchorId.field = uid
+          anchorId.override.field = tx_paginatedprocessors_anchorid
+        }
+      }
+    }
+    #  dataProcessing.10 = Brightside\Youtubevideo\DataProcessing\DatabaseCustomQueryProcessor
+    settings {
+      cssFile = {$youtubevideo.cssFile}
+      cssEmbed = {$youtubevideo.cssEmbed}
+      cssPriority = {$youtubevideo.cssPriority}
+      coverimagewidth = {$youtubevideo.coverimagewidth}
+      colspacewidth = {$youtubevideo.colspacewidth}
+      forceImageFileFormat = {$youtubevideo.forceImageFileFormat}
+    }
+    variables {
+      # language code use de, fr, et etc.
+      hl = TEXT
+      hl.data = siteLanguage:iso-639-1
+
+      # wide screen 16:9 value (math behind: 9 * 100 / 16 = 56.25)
+      ratioDefault = TEXT
+      ratioDefault.value = 56.25
+
+      # old screens 4:3 value (math behind: 3 * 100 / 4 = 75)
+      ratio1 = TEXT
+      ratio1.value = 75
+
+      modestbranding = TEXT
+      modestbranding.value = {$youtubevideo.modestbranding}
+
+      nocookiehost = TEXT
+      nocookiehost.value = {$youtubevideo.nocookiehost}
+
+      coverimagewidth = TEXT
+      coverimagewidth.value = {$youtubevideo.coverimagewidth}
+
+      containerBreakpointSmall = TEXT
+      containerBreakpointSmall.value = {$youtubevideo.breakpointSmall}
+
+      containerBreakpointTiny = TEXT
+      containerBreakpointTiny.value = {$youtubevideo.breakpointTiny}
+
+      gdprnote = TEXT
+      gdprnote.value = {$youtubevideo.gdprnote}
+
+      gdprtextoverride = TEXT
+      gdprtextoverride.value = {$youtubevideo.gdprtextoverride}
+
+      privacytermslink = TEXT
+      privacytermslink.value = {$youtubevideo.privacytermslink}
+
+      colspacewidth = TEXT
+      colspacewidth.value = {$youtubevideo.colspacewidth}
+
+      iframe = TEXT
+      iframe.value = {$youtubevideo.iframe}
+    }
+  }
+}
