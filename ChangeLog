@@ -183,3 +183,8 @@
     [TASK] Add site sets
 * 3.1.1
     [TASK] update changelog
+* 3.1.2
+	[TASK] modernise icon handling
+	[BUGFIX] #26  TCA FileType issues
+	[TASK] clean up BE render double header
+	[BUGFIX] BE rendering issues in older compatible versions #27
